@@ -18,7 +18,7 @@ app.post("/create_preference", (req, res) => {
 	let preference = {
 		items: [{
 			title: req.body.description,
-			unit_price: Number(req.body.price),
+			unit_price: Number(req.body.unit_price),
 			quantity: Number(req.body.quantity),
 		}],
 		back_urls: {
