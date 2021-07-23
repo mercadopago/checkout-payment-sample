@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "express": "4.17.1",
-    "mercadopago": "^1.5.1"
+    "mercadopago": "^1.5.8"
   },
   "devDependencies": {
     "nodemon": "1.18.4"
