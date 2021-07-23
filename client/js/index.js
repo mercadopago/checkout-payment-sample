@@ -34,15 +34,21 @@ document.getElementById("checkout-btn").addEventListener("click", function() {
 
 //Create preference when click on checkout button
 function createCheckoutButton(preference) {
-  var script = document.createElement("script");
-  
   // The source domain must be completed according to the site for which you are integrating.
-  // For example: for Argentina ".com.ar" or for Brazil ".com.br".
-  script.src = "https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js";
-  script.type = "text/javascript";
-  script.dataset.preferenceId = preference;
-  document.getElementById("button-checkout").innerHTML = "";
-  document.querySelector("#button-checkout").appendChild(script);
+  // For example: for Argentina "es-AR" or for Brazil "es-BR".
+  const mp = new MercadoPago('PUBLIC_KEY', {
+    locale: 'es-PE'
+  });
+  // Inicializa el checkout
+  mp.checkout({
+    preference: {
+      id: preference
+    },
+    render: {
+      container: '#button-checkout', // Indica dónde se mostrará el botón de pago
+      label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+    }
+  })
 }
 
 //Handle price update
