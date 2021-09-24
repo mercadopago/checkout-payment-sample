@@ -6,7 +6,8 @@
 - Node v10 or higher
 - Read our [testing instructions](https://www.mercadopago.com/developers/en/guides/online-payments/checkout-pro/test-integration)
 - Setup your credentials: 
-  - Private Access Token on server-side [`server.js`](https://github.com/mercadopago/checkout-payment/tree/master/server/node/server.js#L6)
+  - Public Key on client-side and locale `index.js`
+  - Private Access Token on server-side `server.js`
 
 ### How to run it
 - npm install
