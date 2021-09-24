@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
     <script type="text/javascript" src="js/index.js" defer></script>
   </head>
   <body>
@@ -41,7 +41,7 @@
                           </div>
                           <div class="col-md-3 product-detail">
                             <label for="quantity"><h5>Quantity</h5></label>
-                            <input type="number" id="quantity" value="1" class="form-control">
+                            <input type="number" id="quantity" value="1" min="1" class="form-control">
                           </div>
                         </div>
                       </div>
@@ -99,8 +99,9 @@
       <div class="footer_logo"><img id="horizontal_logo" src="img/horizontal_logo.png"></div>
       <div class="footer_text">
         <p>Developers Site:</p>
-        <p><a href="https://developers.mercadopago.com">https://developers.mercadopago.com</p>
+        <p><a href="https://developers.mercadopago.com" target="_blank">https://developers.mercadopago.com</p>
       </div>
 		</footer>
   </body>
+  
 </html>
