@@ -12,7 +12,7 @@ mercadopago.configure({
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("../../client"));
-
+app.use(cors());
 app.get("/", function (req, res) {
 	res.status(200).sendFile("index.html");
 });
