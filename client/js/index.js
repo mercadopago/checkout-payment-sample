@@ -5,37 +5,37 @@ const mercadopago = new MercadoPago('PUBLIC_KEY', {
 });
 
 // Handle call to backend and generate preference.
-document.getElementById("checkout-btn").addEventListener("click", function() {
+document.getElementById("checkout-btn").addEventListener("click", function () {
 
   $('#checkout-btn').attr("disabled", true);
-  
+
   const orderData = {
     quantity: document.getElementById("quantity").value,
     description: document.getElementById("product-description").innerHTML,
     price: document.getElementById("unit-price").innerHTML
   };
-    
+
   fetch("/create_preference", {
     method: "POST",
     headers: {
-        "Content-Type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(orderData),
   })
-    .then(function(response) {
-        return response.json();
+    .then(function (response) {
+      return response.json();
     })
-    .then(function(preference) {
-        createCheckoutButton(preference.id);
-        
-        $(".shopping-cart").fadeOut(500);
-        setTimeout(() => {
-            $(".container_payment").show(500).fadeIn();
-        }, 500);
+    .then(function (preference) {
+      createCheckoutButton(preference.id);
+
+      $(".shopping-cart").fadeOut(500);
+      setTimeout(() => {
+        $(".container_payment").show(500).fadeIn();
+      }, 500);
     })
-    .catch(function() {
-        alert("Unexpected error");
-        $('#checkout-btn').attr("disabled", false);
+    .catch(function () {
+      alert("Unexpected error");
+      $('#checkout-btn').attr("disabled", false);
     });
 });
 
@@ -66,13 +66,13 @@ function updatePrice() {
 }
 
 document.getElementById("quantity").addEventListener("change", updatePrice);
-updatePrice();  
+updatePrice();
 
 // Go back
-document.getElementById("go-back").addEventListener("click", function() {
+document.getElementById("go-back").addEventListener("click", function () {
   $(".container_payment").fadeOut(500);
   setTimeout(() => {
-      $(".shopping-cart").show(500).fadeIn();
+    $(".shopping-cart").show(500).fadeIn();
   }, 500);
-  $('#checkout-btn').attr("disabled", false);  
+  $('#checkout-btn').attr("disabled", false);
 });

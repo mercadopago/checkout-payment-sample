@@ -7,16 +7,15 @@ const mercadopago = require("mercadopago");
 mercadopago.configure({
 	access_token: "ACCESS_TOKEN",
 });
-  
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
 app.use(express.static("../../client"));
-
+app.use(cors());
 app.get("/", function (req, res) {
-  res.status(200).sendFile("index.html");
-}); 
+	res.status(200).sendFile("index.html");
+});
 
 app.post("/create_preference", (req, res) => {
 
@@ -46,7 +45,7 @@ app.post("/create_preference", (req, res) => {
 		});
 });
 
-app.get('/feedback', function(req, res) {
+app.get('/feedback', function (req, res) {
 	res.json({
 		Payment: req.query.payment_id,
 		Status: req.query.status,
@@ -55,5 +54,5 @@ app.get('/feedback', function(req, res) {
 });
 
 app.listen(8080, () => {
-  console.log("The server is now running on Port 8080");
+	console.log("The server is now running on Port 8080");
 });
