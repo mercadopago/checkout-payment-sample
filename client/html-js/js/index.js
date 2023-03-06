@@ -1,6 +1,6 @@
 // Add SDK credentials
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-const mercadopago = new MercadoPago('PUBLIC_KEY', {
+const mercadopago = new MercadoPago('YOUR_PUBLIC_KEY', {
   locale: 'YOUR_LOCALE' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
 });
 
@@ -15,7 +15,7 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     price: document.getElementById("unit-price").innerHTML
   };
 
-  fetch("/create_preference", {
+  fetch("http://localhost:8080/create_preference", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,18 +39,27 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     });
 });
 
-// Create preference when click on checkout button
 function createCheckoutButton(preferenceId) {
   // Initialize the checkout
-  mercadopago.checkout({
-    preference: {
-      id: preferenceId
-    },
-    render: {
-      container: '#button-checkout', // Class name where the payment button will be displayed
-      label: 'Pay', // Change the payment button text (optional)
-    }
-  });
+  const bricksBuilder = mercadopago.bricks();
+
+  const renderComponent = async (bricksBuilder) => {
+    if (window.checkoutButton) window.checkoutButton.unmount();
+    await bricksBuilder.create(
+      'wallet',
+      'button-checkout', // Name where the payment button will be displayed
+      {
+        initialization: {
+          preferenceId: preferenceId
+        },
+        callbacks: {
+          onError: (error) => console.error(error),
+          onReady: () => {}
+        }
+      }
+    );
+  };
+  window.checkoutButton =  renderComponent(bricksBuilder);
 }
 
 // Handle price update
