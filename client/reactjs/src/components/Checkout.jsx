@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import classnames from 'classnames'
 
-const Checkout = ({ onClick }) => {
+const Checkout = ({ onClick, preferenceId, disabled }) => {
+  const [isVisible, setIsvisible] = React.useState(true);
+  const shoppingCartClass = classnames('shopping-cart dark', {
+    'shopping-cart--hidden': !isVisible,
+  })
+
+  useEffect(() => { 
+    if (preferenceId) {
+      setTimeout(() => setIsvisible(false), 500);
+      updatePrice();
+    }
+  }, [preferenceId])
+
+  useEffect(() => { 
+      updatePrice();
+  }, [])
 
   const updatePrice = () => {
-    let quantity = document.getElementById("quantity").value;
+    let quantity = document.getElementById("quantity").value || 1;
     let unitPrice = document.getElementById("unit-price").innerHTML;
     let amount = parseInt(unitPrice) * parseInt(quantity);
   
@@ -14,7 +30,7 @@ const Checkout = ({ onClick }) => {
   }
   
   return (
-    <section className="shopping-cart dark">
+    <section className={shoppingCartClass}>
       <div className="container" id="container">
         <div className="block-heading">
           <h2>Shopping Cart</h2>
@@ -79,6 +95,7 @@ const Checkout = ({ onClick }) => {
                   className="btn btn-primary btn-lg btn-block"
                   onClick={onClick}
                   id="checkout-btn"
+                  disabled={disabled}
                 >
                   Checkout
                 </button>

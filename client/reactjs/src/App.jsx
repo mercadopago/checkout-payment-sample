@@ -4,13 +4,14 @@ import Payment from "./components/Payment";
 import Checkout from "./components/Checkout";
 
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-initMercadoPago("YOUR_PUBLIC_KEY");
+initMercadoPago("APP_USR-2d200819-1179-436f-9e5a-b51ce4f34ac8");
 
 const App = () => {
   const [preferenceId, setPreferenceId] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const handleClick = () => {
-    $("#checkout-btn").attr("disabled", true);
+    setIsLoading(true);
     const orderData = {
       quantity: document.getElementById("quantity").value || "1",
       description: document.getElementById("product-description").innerHTML,
@@ -29,19 +30,18 @@ const App = () => {
       })
       .then((preference) => {
         setPreferenceId(preference.id);
-        $(".shopping-cart").fadeOut(500);
-        setTimeout(() => $(".container_payment").show(500).fadeIn(), 500);
       })
       .catch((error) => {
         console.error(error);
-        $("#checkout-btn").attr("disabled", false);
-      });
+      }).finally(() => {
+        setIsLoading(false);
+      })
   };
 
   return (
     <>
       <main>
-        <Checkout onClick={handleClick} />
+        <Checkout preferenceId={preferenceId} disabled={isLoading} onClick={handleClick} />
         <Payment preferenceId={preferenceId} />
       </main>
       <footer>

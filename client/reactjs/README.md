@@ -2,16 +2,11 @@
 
 ## Development
 
-Install dependencies:
+Install dependencies and start a local web server by running:
 
 ```
-npm i
+npm install
+npm run start
 ```
 
-Now, you can start a local web server by running:
-
-```
-npm start
-```
-
-And then open http://localhost:3000 to view it in the browser.
+Open http://localhost:3000 to view it in the browser

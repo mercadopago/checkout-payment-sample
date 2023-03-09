@@ -1,20 +1,28 @@
 import React from "react";
+import classnames from 'classnames'
 import { Wallet } from "@mercadopago/sdk-react";
 
 const Payment = ({ preferenceId }) => {
+  const paymentClass = classnames('payment-form dark', {
+    'payment-form--hidden': !preferenceId,
+  })
 
-  const handleReturn = () => {
-    $(".container_payment").fadeOut(500);
-    setTimeout(() => $(".shopping-cart").show(500).fadeIn(), 500);
-    $('#checkout-btn').attr("disabled", false);
+
+  const handleOnReady = () => {
+    console.log('Checkout button is loaded!');
   }
 
   const renderCheckoutButton = (preferenceId) => {
-    return <Wallet initialization={{ preferenceId: preferenceId }} />;
+    return (
+      <Wallet 
+        initialization={{ preferenceId: preferenceId }}
+        onReady={handleOnReady} />
+      )
   }
 
+
   return (
-    <div className="payment-form dark">
+    <div className={paymentClass}>
       <div className="container_payment">
         <div className="block-heading">
           <h2>Checkout Payment</h2>
@@ -40,13 +48,6 @@ const Payment = ({ preferenceId }) => {
             <div className="form-group col-sm-12">
               {preferenceId && renderCheckoutButton(preferenceId)}
             </div>
-            <a onClick={handleReturn}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" viewBox="0 0 10 10" className="chevron-left">
-                  <path fill="#009EE3" fillRule="nonzero" id="chevron_left"
-                    d="M7.05 1.4L6.2.552 1.756 4.997l4.449 4.448.849-.848-3.6-3.6z"></path>
-                </svg>
-                Go back to Shopping Cart
-            </a>
           </div>
         </div>
       </div>
