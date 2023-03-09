@@ -4,7 +4,7 @@ import Payment from "./components/Payment";
 import Checkout from "./components/Checkout";
 
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-initMercadoPago("APP_USR-2d200819-1179-436f-9e5a-b51ce4f34ac8");
+initMercadoPago("<PUBLIC_KEY>");
 
 const App = () => {
   const [preferenceId, setPreferenceId] = React.useState(null);

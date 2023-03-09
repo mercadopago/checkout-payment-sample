@@ -1,7 +1,7 @@
 // Add SDK credentials
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-const mercadopago = new MercadoPago('APP_USR-2d200819-1179-436f-9e5a-b51ce4f34ac8', {
-  locale: 'en-US' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
+const mercadopago = new MercadoPago('<PUBLIC_KEY>', {
+  locale: '<LOCALE>' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
 });
 
 // Handle call to backend and generate preference.
