@@ -1,18 +1,23 @@
 import React from "react";
 import classnames from 'classnames'
 import { Wallet } from "@mercadopago/sdk-react";
+import { Context } from "./ContextProvider";
 
-const Payment = ({ preferenceId }) => {
+const Payment = () => {
+  const { preferenceId } = React.useContext(Context);
+  const [isReady, setIsReady] = React.useState(false);
   const paymentClass = classnames('payment-form dark', {
-    'payment-form--hidden': !preferenceId,
-  })
-
+    'payment-form--hidden': !isReady,
+  });
 
   const handleOnReady = () => {
-    console.log('Checkout button is loaded!');
+    console.log('Checkout button is loaded! You could stop your loading spinner here');
+    setIsReady(true);
   }
 
   const renderCheckoutButton = (preferenceId) => {
+    if (!preferenceId) return null;
+
     return (
       <Wallet 
         initialization={{ preferenceId: preferenceId }}
@@ -46,7 +51,7 @@ const Payment = ({ preferenceId }) => {
           </div>
           <div className="payment-details">
             <div className="form-group col-sm-12">
-              {preferenceId && renderCheckoutButton(preferenceId)}
+              {renderCheckoutButton(preferenceId)}
             </div>
           </div>
         </div>

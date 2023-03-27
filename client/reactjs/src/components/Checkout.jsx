@@ -1,30 +1,26 @@
 import React, { useEffect } from "react";
 import classnames from 'classnames'
+import { Context } from "./ContextProvider";
 
-const Checkout = ({ onClick, preferenceId, disabled }) => {
-  const [isVisible, setIsvisible] = React.useState(true);
+const Checkout = ({ onClick }) => {
+  const [isVisible, setIsVisible] = React.useState(true);
+  const { preferenceId, isLoading: disabled, orderData } = React.useContext(Context);
   const shoppingCartClass = classnames('shopping-cart dark', {
     'shopping-cart--hidden': !isVisible,
   })
 
-  useEffect(() => { 
-    if (preferenceId) {
-      setTimeout(() => setIsvisible(false), 500);
-      updatePrice();
-    }
+  useEffect(() => {
+    if (preferenceId) setTimeout(() => setIsVisible(false), 500);
+    updatePrice();
   }, [preferenceId])
 
-  useEffect(() => { 
-      updatePrice();
-  }, [])
 
   const updatePrice = () => {
-    let quantity = document.getElementById("quantity").value || 1;
-    let unitPrice = document.getElementById("unit-price").innerHTML;
-    let amount = parseInt(unitPrice) * parseInt(quantity);
+    let quantity = document.getElementById("quantity")?.value || parseInt(orderData.quantity);
+    let amount = parseInt(orderData.price) * parseInt(quantity);
   
     document.getElementById("cart-total").innerHTML = `$${amount}`;
-    document.getElementById("summary-price").innerHTML = `$${unitPrice}`;
+    document.getElementById("summary-price").innerHTML = `$${orderData.price}`;
     document.getElementById("summary-quantity").innerHTML = quantity;
     document.getElementById("summary-total").innerHTML = `$${amount}`;
   }
