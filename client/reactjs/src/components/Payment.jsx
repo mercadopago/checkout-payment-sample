@@ -4,14 +4,13 @@ import { Wallet } from "@mercadopago/sdk-react";
 import { Context } from "./ContextProvider";
 
 const Payment = () => {
-  const { preferenceId } = React.useContext(Context);
+  const { preferenceId, orderData } = React.useContext(Context);
   const [isReady, setIsReady] = React.useState(false);
   const paymentClass = classnames('payment-form dark', {
     'payment-form--hidden': !isReady,
   });
 
   const handleOnReady = () => {
-    console.log('Checkout button is loaded! You could stop your loading spinner here');
     setIsReady(true);
   }
 
@@ -25,7 +24,6 @@ const Payment = () => {
       )
   }
 
-
   return (
     <div className={paymentClass}>
       <div className="container_payment">
@@ -37,16 +35,14 @@ const Payment = () => {
           <div className="products">
             <h2 className="title">Summary</h2>
             <div className="item">
-              <span className="price" id="summary-price"></span>
+              <span className="price" id="summary-price">${orderData.price}</span>
               <p className="item-name">
-                Book X <span id="summary-quantity"></span>
+                Book X <span id="summary-quantity">{orderData.quantity}</span>
               </p>
             </div>
             <div className="total">
               Total
-              <span className="price" id="summary-total">
-                $10
-              </span>
+              <span className="price" id="summary-total">${orderData.amount}</span>
             </div>
           </div>
           <div className="payment-details">

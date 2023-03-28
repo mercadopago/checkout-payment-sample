@@ -4,25 +4,20 @@ import { Context } from "./ContextProvider";
 
 const Checkout = ({ onClick }) => {
   const [isVisible, setIsVisible] = React.useState(true);
-  const { preferenceId, isLoading: disabled, orderData } = React.useContext(Context);
+  const { preferenceId, isLoading: disabled, orderData, setOrderData } = React.useContext(Context);
   const shoppingCartClass = classnames('shopping-cart dark', {
     'shopping-cart--hidden': !isVisible,
   })
 
   useEffect(() => {
-    if (preferenceId) setTimeout(() => setIsVisible(false), 500);
-    updatePrice();
+    if (preferenceId) setIsVisible(false);
   }, [preferenceId])
 
 
-  const updatePrice = () => {
-    let quantity = document.getElementById("quantity")?.value || parseInt(orderData.quantity);
-    let amount = parseInt(orderData.price) * parseInt(quantity);
-  
-    document.getElementById("cart-total").innerHTML = `$${amount}`;
-    document.getElementById("summary-price").innerHTML = `$${orderData.price}`;
-    document.getElementById("summary-quantity").innerHTML = quantity;
-    document.getElementById("summary-total").innerHTML = `$${amount}`;
+  const updatePrice = (event) => {
+    const quantity = event.target.value;
+    const amount = parseInt(orderData.price) * parseInt(quantity);
+    setOrderData({ ...orderData, quantity, amount });
   }
   
   return (
@@ -69,7 +64,7 @@ const Checkout = ({ onClick }) => {
                            onChange={updatePrice}
                             type="number"
                             id="quantity"
-                            placeholder="1"
+                            value={orderData.quantity}
                             min="1"
                             className="form-control"
                           />
@@ -85,7 +80,7 @@ const Checkout = ({ onClick }) => {
                 <h3>Cart</h3>
                 <div className="summary-item">
                   <span className="text">Subtotal</span>
-                  <span className="price" id="cart-total"></span>
+                  <span className="price" id="cart-total">${orderData.amount}</span>
                 </div>
                 <button
                   className="btn btn-primary btn-lg btn-block"
