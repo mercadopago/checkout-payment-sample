@@ -10,7 +10,7 @@ $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 switch($path){
     case '':
     case '/':
-        require __DIR__ . '/../../client/index.html';
+        require __DIR__ . '/../../client/html-js/index.html';
         break;
     case '/create_preference':
         $json = file_get_contents("php://input");
