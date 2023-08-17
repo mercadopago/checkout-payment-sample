@@ -49,7 +49,7 @@ switch($path){
         break;
     //Server static resources
     default:
-        $file = __DIR__ . '/../../client' . $path;
+        $file = __DIR__ . '/../../client/html-js' . $path;
         $extension = end(explode('.', $path));
         $content = 'text/html';
         switch($extension){
