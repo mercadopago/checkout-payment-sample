@@ -1,6 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+/*
+    Esto se usa para importar archivos css a otro:
+        @import '<ruta a algun archivo css>';
+        @import url('<ruta a algun recurso externo>');
+*/
 
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 @import 'navbar.css';
+
+/**
+    Todo el siguiente codigo es de https://necolas.github.io/normalize.css
+    Es un pedazo de codigo que resetea los estilos css que traen por defecto los navegadores
+*/
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
