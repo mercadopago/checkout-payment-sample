@@ -5,15 +5,14 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon main.js",
-    "start": "node main.js"
+    "dev": "nodemon ./src/main.js",
+    "start": "node ./src/main.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.20.0",
     "helmet": "^7.1.0",
-    "mercadopago": "^2.0.15",
-    "zod": "^3.23.8"
+    "mercadopago": "^2.0.15"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
