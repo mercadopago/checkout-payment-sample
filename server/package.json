@@ -2,17 +2,18 @@
   "name": "hola-mundo-animal",
   "version": "1.0.0",
   "description": "Un ecommerce sencillo",
-  "main": "server.js",
+  "main": "main.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "nodemon main.js",
+    "start": "node main.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.20.0",
     "helmet": "^7.1.0",
-    "mercadopago": "^2.0.15"
+    "mercadopago": "^2.0.15",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"
