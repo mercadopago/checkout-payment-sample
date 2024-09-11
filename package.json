@@ -11,6 +11,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.20.0",
+    "express-validator": "^7.2.0",
     "helmet": "^7.1.0",
     "mercadopago": "^2.0.15"
   },

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { MercadoPagoConfig, Preference } from "mercadopago";
+import { body, validationResult } from "express-validator";
 
 const router = Router();
 
@@ -15,20 +16,25 @@ router.get('/feedback', function (req, res) {
     });
 });
 
+const preference_validator = [
+    body("products").exists("Tu carrito esta vacio"),
+    body("products").isArray().withMessage("Este campo debe ser una lista de productos"),
+    body("products.*.title").exists().isString().withMessage("El nombre del producto debe ser un string"),
+    body("products.*.unit_price").exists().isNumeric().withMessage("El precio unitario debe ser un numero"),
+    body("products.*.quantity").exists().isNumeric().withMessage("La cantidad debe ser un numero")
+];
 
-router.post("/preference", async function (req, res) {
+router.post("/preference", ...preference_validator, async function (req, res) {
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
 
     const { products } = req.body;
 
     const data = {
-        items: [
-            /**
-            title: req.body.description,
-            unit_price: Number(req.body.price),
-            quantity: Number(req.body.quantity),
-            */
-            ...products
-        ],
+        items: [...products],
         back_urls: {
             "success": `http://localhost:${req.app.get("port")}/feedback`,
             "failure": `http://localhost:${req.app.get("port")}/feedback`,
