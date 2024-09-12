@@ -2,7 +2,23 @@ import all_products from "./all_products.js";
 
 const products_container = document.querySelector("#products");
 
+const buy_button = document.querySelector("#show-cart");
+
 let carrito = [];
+
+buy_button.addEventListener("click", () => {
+
+    fetch("/buy", {
+        body: JSON.stringify({
+            products: carrito
+        }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    });
+
+});
 
 const ponerEnElCarrito = (producto) => {
     const el_producto_esta = carrito.find(elemento => elemento.id === producto.id);

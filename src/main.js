@@ -9,6 +9,11 @@ app.get("/ok", (req, res) => {
     });
 });
 
+app.post("/buy", (req, res) => {
+    console.log(req.body);
+    return res.status(200);
+})
+
 app.listen(app.get("port"), () => {
     console.log("Server http encendido! 😎");
 });
