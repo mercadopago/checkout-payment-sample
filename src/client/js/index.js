@@ -2,6 +2,24 @@ import all_products from "./all_products.js";
 
 const products_container = document.querySelector("#products");
 
+let carrito = [];
+
+const ponerEnElCarrito = (producto) => {
+    const el_producto_esta = carrito.find(elemento => elemento.id === producto.id);
+
+    if (!el_producto_esta) {
+        carrito.push({ ...producto, quantity: 1 });
+    } else {
+        carrito = carrito.map(elemento =>
+            elemento.id === producto.id
+                ? { ...elemento, quantity: elemento.quantity + 1 }
+                : elemento
+        );
+    }
+
+    console.log(carrito);
+};
+
 const mostrarProducto = (producto) => {
 
     const fragment = document.createDocumentFragment();
@@ -27,7 +45,8 @@ const mostrarProducto = (producto) => {
     body.appendChild(price);
 
     const buy_button = document.createElement("button");
-    buy_button.innerText = "Comprar"
+    buy_button.innerText = "Comprar";
+    buy_button.addEventListener("click", () => ponerEnElCarrito(producto));
 
     body.appendChild(buy_button);
 
