@@ -79,3 +79,18 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+.product-row button {
+    background-color: rgb(203, 32, 39);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin: 0 !important;
+    padding: .3rem .5rem .2rem .5rem;
+}
+
+.product-row button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgb(239, 239, 239);
+}

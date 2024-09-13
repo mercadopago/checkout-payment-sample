@@ -1,81 +1,122 @@
 import all_products from "./all_products.js";
 
-const products_container = document.querySelector("#products");
-const carrito_element = document.querySelector("#carrito");
+const products_section = document.querySelector("#products");
 
-const abrir_carrito = document.querySelector("#open-cart");
-const cerrar_carrito = document.querySelector("#close-cart");
+class Carrito {
 
-let carrito = [];
+    constructor() {
+        this.products = [];
 
-abrir_carrito.addEventListener("click", () => {
-    carrito_element.classList.toggle("invisible");
-});
+        this.content = document.querySelector("#carrito .container");
+        this.element = document.querySelector("#carrito");
+        this.open_button = document.querySelector("button#open-cart");
+        this.close_button = document.querySelector("button#close-cart");
 
-cerrar_carrito.addEventListener("click", () => {
-    carrito_element.classList.toggle("invisible");
-});
+        this.open_button.addEventListener("click", () => this.open());
+        this.close_button.addEventListener("click", () => this.close());
+    }
 
-const ponerEnElCarrito = (producto) => {
-    const el_producto_esta = carrito.find(elemento => elemento.id === producto.id);
+    open() {
+        this.element.classList.toggle("invisible");
+    }
 
-    if (!el_producto_esta) {
-        carrito.push({ ...producto, quantity: 1 });
-    } else {
-        carrito = carrito.map(elemento =>
-            elemento.id === producto.id
-                ? { ...elemento, quantity: elemento.quantity + 1 }
-                : elemento
+    close() {
+        this.element.classList.toggle("invisible");
+    }
+
+    addProduct(product) {
+        const in_cart = this.products.find(
+            element => element.id == product.id
+        );
+
+        if (!in_cart) {
+            this.products.push({ ...product, quantity: 1 });
+        } else {
+            this.products = this.products.map(element => {
+                if (element.id !== product.id) return element;
+                return { ...element, quantity: element.quantity + 1 };
+            });
+        }
+
+        this.updateView();
+    }
+
+    removeProduct(product_id) {
+        this.products = this.products.filter(
+            product => product.id !== product_id
+        );
+        this.updateView();
+    }
+
+    getRowFromProduct(product) {
+        const product_row = document.createElement("div");
+        product_row.classList.add("product-row");
+
+        const product_title = document.createElement("p");
+        product_title.innerText = `${product.title} x ${product.quantity}`;
+
+        const product_price = document.createElement("span");
+        product_price.innerText = `$ ${product.price}`;
+
+        const remove_button = document.createElement("button");
+        remove_button.innerHTML = `
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        `;
+        remove_button.addEventListener("click", () => this.removeProduct(product.id));
+
+        product_row.appendChild(product_title);
+        product_row.appendChild(product_price);
+        product_row.appendChild(remove_button);
+
+        return product_row;
+    }
+
+    getTotalPrice() {
+        return this.products.reduce(
+            (total, product) => total + (product.price * product.quantity), 0
         );
     }
 
-    actualizarCarritoVisual();
+    updateView() {
+        this.content.innerHTML = "";
 
-    console.log(carrito);
-};
+        if (this.products.length === 0) {
+            const empty_message = document.createElement("span");
+            empty_message.innerText = "Carrito vacío 🛒";
+            this.content.appendChild(empty_message);
+            return;
+        }
 
-const actualizarCarritoVisual = () => {
-    const carrito_container = document.querySelector("#carrito .container");
-    carrito_container.innerHTML = ""; // Limpiar el contenido actual del carrito
+        const fragment = document.createDocumentFragment();
 
-    if (carrito.length === 0) {
-        const empty_message = document.createElement("span");
-        empty_message.innerText = "Carrito vacío 🛒";
-        carrito_container.appendChild(empty_message);
-    } else {
-        carrito.forEach((producto) => {
-            const product_row = document.createElement("div");
-            product_row.classList.add("product-row");
-
-            const product_title = document.createElement("p");
-            product_title.innerText = `${producto.title} x ${producto.quantity}`;
-
-            const product_price = document.createElement("span");
-            product_price.innerText = `$ ${producto.price * producto.quantity}`;
-
-            product_row.appendChild(product_title);
-            product_row.appendChild(product_price);
-
-            carrito_container.appendChild(product_row);
+        this.products.forEach(product => {
+            const row = this.getRowFromProduct(product);
+            fragment.appendChild(row);
         });
-
-        const total_price = carrito.reduce((acc, item) => acc + (item.price * item.quantity), 0);
 
         const total_row = document.createElement("div");
         total_row.classList.add("total-row");
 
         const total_text = document.createElement("p");
-        total_text.innerText = "Total:";
+        total_text.innerText = "Total: ";
 
         const total_amount = document.createElement("span");
-        total_amount.innerText = `$ ${total_price}`;
+        total_amount.innerText = `$ ${this.getTotalPrice()}`;
 
         total_row.appendChild(total_text);
         total_row.appendChild(total_amount);
 
-        carrito_container.appendChild(total_row);
+        fragment.appendChild(total_row);
+
+        this.content.appendChild(fragment);
     }
-};
+
+}
+
+
+const carrito = new Carrito();
 
 const mostrarProducto = (producto) => {
 
@@ -104,7 +145,7 @@ const mostrarProducto = (producto) => {
 
     const buy_button = document.createElement("button");
     buy_button.innerText = "Comprar";
-    buy_button.addEventListener("click", () => ponerEnElCarrito(producto));
+    buy_button.addEventListener("click", () => carrito.addProduct(producto));
 
     body.appendChild(buy_button);
 
@@ -113,7 +154,7 @@ const mostrarProducto = (producto) => {
 
     fragment.appendChild(container_product);
 
-    products_container.appendChild(fragment);
+    products_section.appendChild(fragment);
 
 }
 
