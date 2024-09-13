@@ -29,7 +29,52 @@ const ponerEnElCarrito = (producto) => {
         );
     }
 
+    actualizarCarritoVisual();
+
     console.log(carrito);
+};
+
+const actualizarCarritoVisual = () => {
+    const carrito_container = document.querySelector("#carrito .container");
+    carrito_container.innerHTML = ""; // Limpiar el contenido actual del carrito
+
+    if (carrito.length === 0) {
+        const empty_message = document.createElement("span");
+        empty_message.innerText = "Carrito vacío 🛒";
+        carrito_container.appendChild(empty_message);
+    } else {
+        carrito.forEach((producto) => {
+            const product_row = document.createElement("div");
+            product_row.classList.add("product-row");
+
+            const product_title = document.createElement("p");
+            product_title.innerText = `${producto.title} x ${producto.quantity}`;
+
+            const product_price = document.createElement("span");
+            product_price.innerText = `$ ${producto.price * producto.quantity}`;
+
+            product_row.appendChild(product_title);
+            product_row.appendChild(product_price);
+
+            carrito_container.appendChild(product_row);
+        });
+
+        const total_price = carrito.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+
+        const total_row = document.createElement("div");
+        total_row.classList.add("total-row");
+
+        const total_text = document.createElement("p");
+        total_text.innerText = "Total:";
+
+        const total_amount = document.createElement("span");
+        total_amount.innerText = `$ ${total_price}`;
+
+        total_row.appendChild(total_text);
+        total_row.appendChild(total_amount);
+
+        carrito_container.appendChild(total_row);
+    }
 };
 
 const mostrarProducto = (producto) => {

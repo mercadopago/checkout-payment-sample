@@ -38,14 +38,44 @@
 #carrito .container {
     background-color: aliceblue;
     display: flex;
-    justify-content: center;
     text-align: center;
-    padding-top: 5vh;
+    padding: 5vh 2vw 0 2vw;
     min-height: 100%;
+    flex-direction: column;
 }
 
 @media screen and (min-width: 500px) {
     #carrito {
         min-width: 500px;
     }
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Estilos para el título del producto */
+.product-row p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Estilos para el precio del producto */
+.product-row span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos para la fila del total */
+.total-row {
+    display: flex;
+    border-top: 1px solid #000;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
 }
