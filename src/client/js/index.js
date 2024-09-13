@@ -37,6 +37,7 @@ const mostrarProducto = (producto) => {
     const fragment = document.createDocumentFragment();
 
     const container_product = document.createElement("div");
+    container_product.classList.add("container");
 
     const header = document.createElement("div");
 
