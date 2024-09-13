@@ -12,14 +12,15 @@ nav {
     padding: 3vh 5vw;
 }
 
-#show-cart {
+#open-cart {
     background-color: transparent;
     padding: 0;
     border-radius: 12px;
     border: none 0px;
+    cursor: pointer;
 }
 
-#show-cart svg {
+#open-cart svg {
     width: 1.5em;
     height: 1.5em;
     color: rgb(239, 239, 239);

@@ -1,0 +1,51 @@
+#carrito {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    border-left: 1px solid #000;
+    transition: all 1s;
+}
+
+#carrito .navbar {
+    background-color: rgb(19, 44, 114);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 5vw;
+}
+
+#carrito .navbar button {
+    background-color: transparent;
+    padding: 0;
+    border: none 0px;
+    cursor: pointer;
+}
+
+#carrito .navbar button svg {
+    width: 1.5em;
+    height: 1.5em;
+    color: rgb(239, 239, 239);
+}
+
+#carrito .navbar span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#carrito .container {
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5vh;
+    min-height: 100%;
+}
+
+@media screen and (min-width: 500px) {
+    #carrito {
+        min-width: 500px;
+    }
+}

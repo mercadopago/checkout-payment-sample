@@ -16,7 +16,7 @@
       <span>Hola Mundo Animal 🐶</span>
     </div>
     <div class="right">
-      <button id="show-cart">
+      <button id="open-cart">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="size-6">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -28,7 +28,21 @@
 
   <main>
     <section id="products"></section>
-    <aside id="carrito">
+    <aside id="carrito" class="invisible">
+      <div class="navbar">
+        <span>
+          🐶
+        </span>
+        <button id="close-cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="container">
+        <span>Carrito vacío 🛒</span>
+      </div>
     </aside>
   </main>
 

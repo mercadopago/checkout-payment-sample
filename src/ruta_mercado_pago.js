@@ -44,7 +44,7 @@ const preference_validator = [
 
 router.post("/preference", ...preference_validator, async function (req, res) {
 
-    if (req.params.test) {
+    if (req.query.test != undefined) {
         console.log("A continuación se muestra los datos sobre los productos: ");
         console.log(res.locals.products);
         return res.status(200).json({

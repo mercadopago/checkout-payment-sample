@@ -1,23 +1,19 @@
 import all_products from "./all_products.js";
 
 const products_container = document.querySelector("#products");
+const carrito_element = document.querySelector("#carrito");
 
-const buy_button = document.querySelector("#show-cart");
+const abrir_carrito = document.querySelector("#open-cart");
+const cerrar_carrito = document.querySelector("#close-cart");
 
 let carrito = [];
 
-buy_button.addEventListener("click", () => {
+abrir_carrito.addEventListener("click", () => {
+    carrito_element.classList.toggle("invisible");
+});
 
-    fetch("/buy", {
-        body: JSON.stringify({
-            products: carrito
-        }),
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-    });
-
+cerrar_carrito.addEventListener("click", () => {
+    carrito_element.classList.toggle("invisible");
 });
 
 const ponerEnElCarrito = (producto) => {

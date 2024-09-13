@@ -7,6 +7,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 @import 'navbar.css';
 @import 'products.css';
+@import 'carrito.css';
+
+.invisible {
+    right: -500px !important;
+}
 
 /**
     Todo el siguiente codigo es de https://necolas.github.io/normalize.css
