@@ -5,7 +5,7 @@ import { body, validationResult } from "express-validator";
 const router = Router();
 
 const client = new MercadoPagoConfig({
-    accessToken: "<token>"
+    accessToken: "<private key>"
 });
 
 /**
@@ -18,6 +18,7 @@ const preference_error_handler = (request, res, next) => {
     const errors = validationResult(request);
 
     if (!errors.isEmpty()) {
+        console.log({ errors: errors.array() })
         return res.status(400).json({ errors: errors.array() });
     }
 
@@ -25,8 +26,9 @@ const preference_error_handler = (request, res, next) => {
 
     res.locals.products = products.map(product => ({
         title: product.title,
-        unit_price: product.price,
-        quantity: product.quantity
+        unit_price: Number(product.price),
+        quantity: Number(product.quantity),
+        currency_id: "ARS"
     }));
 
     next();
@@ -53,11 +55,11 @@ router.post("/preference", ...preference_validator, async function (req, res) {
     }
 
     const data = {
-        items: [...res.locals.products],
+        items: res.locals.products,
         back_urls: {
-            "success": `http://localhost:${req.app.get("port")}/feedback`,
-            "failure": `http://localhost:${req.app.get("port")}/feedback`,
-            "pending": `http://localhost:${req.app.get("port")}/feedback`
+            "success": `http://localhost:8080/feedback`,
+            "failure": `http://localhost:8080/feedback`,
+            "pending": `http://localhost:8080/feedback`
         },
         auto_return: "approved",
     };
@@ -65,13 +67,15 @@ router.post("/preference", ...preference_validator, async function (req, res) {
     try {
 
         const preference = new Preference(client);
-        const result = await preference.create(data);
+        const result = await preference.create({ body: data });
 
         return res.status(200).json({
             id: result.id
         });
 
     } catch (e) {
+
+        console.log(e);
 
         return res.status(500).json({
             message: "Hubo un error al pagar con Mercado Pago",

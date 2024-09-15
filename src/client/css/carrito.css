@@ -44,6 +44,19 @@
     flex-direction: column;
 }
 
+#carrito button#buy {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 @media screen and (min-width: 500px) {
     #carrito {
         min-width: 500px;

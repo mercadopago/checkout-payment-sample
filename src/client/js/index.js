@@ -1,6 +1,15 @@
 import all_products from "./all_products.js";
 
-const products_section = document.querySelector("#products");
+const mp = new MercadoPago('<public key>');
+const bricksBuilder = mp.bricks();
+
+const mountMPButton = async (preferenceId) => {
+    bricksBuilder.create("wallet", "wallet_container", {
+        initialization: {
+            preferenceId
+        }
+    })
+}
 
 class Carrito {
 
@@ -79,6 +88,32 @@ class Carrito {
         );
     }
 
+    async generateNewMPButton(self) {
+
+        console.log(self.products);
+
+        try {
+
+            const response = await fetch("/mp/preference", {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'products': self.products
+                })
+            });
+
+            const preference = await response.json();
+
+            mountMPButton(preference.id);
+
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
     updateView() {
         this.content.innerHTML = "";
 
@@ -105,10 +140,21 @@ class Carrito {
         const total_amount = document.createElement("span");
         total_amount.innerText = `$ ${this.getTotalPrice()}`;
 
+        const buy_button = document.createElement("button");
+        buy_button.id = "buy";
+        buy_button.innerText = "Comprar";
+        buy_button.addEventListener("click", () => this.generateNewMPButton(this));
+
+        const wallet_container = document.createElement("div");
+        wallet_container.id = "wallet_container";
+
+
         total_row.appendChild(total_text);
         total_row.appendChild(total_amount);
 
         fragment.appendChild(total_row);
+        fragment.appendChild(buy_button);
+        fragment.appendChild(wallet_container);
 
         this.content.appendChild(fragment);
     }
@@ -117,6 +163,7 @@ class Carrito {
 
 
 const carrito = new Carrito();
+const products_section = document.querySelector("#products");
 
 const mostrarProducto = (producto) => {
 
