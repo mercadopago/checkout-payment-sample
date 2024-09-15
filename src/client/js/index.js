@@ -1,6 +1,8 @@
 import all_products from "./all_products.js";
 
-const mp = new MercadoPago('<public key>');
+const mp = new MercadoPago('<public key>', {
+    locale: 'es-AR'
+});
 const bricksBuilder = mp.bricks();
 
 const mountMPButton = async (preferenceId) => {
