@@ -1,6 +1,4 @@
-import all_products from "./all_products.js";
-
-const mp = new MercadoPago('<public key>', {
+const mp = new MercadoPago('APP_USR-a50a3f8c-5878-49db-9b44-bf263f2b06ff', {
     locale: 'es-AR'
 });
 const bricksBuilder = mp.bricks();
@@ -23,8 +21,25 @@ class Carrito {
         this.open_button = document.querySelector("button#open-cart");
         this.close_button = document.querySelector("button#close-cart");
 
+        this.open_button.innerHTML = this.getEmptyCartIcon();
+
         this.open_button.addEventListener("click", () => this.open());
         this.close_button.addEventListener("click", () => this.close());
+    }
+
+    getFullCartIcon() {
+        return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+  <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
+</svg>
+`;
+    }
+
+    getEmptyCartIcon() {
+        return `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+        </svg>`;
     }
 
     open() {
@@ -49,6 +64,8 @@ class Carrito {
             });
         }
 
+        this.open_button.innerHTML = this.getFullCartIcon();
+
         this.updateView();
     }
 
@@ -56,6 +73,9 @@ class Carrito {
         this.products = this.products.filter(
             product => product.id !== product_id
         );
+
+        if (this.products.length == 0) this.open_button.innerHTML = this.getEmptyCartIcon();
+
         this.updateView();
     }
 
@@ -207,4 +227,35 @@ const mostrarProducto = (producto) => {
 
 }
 
-all_products.forEach(producto => mostrarProducto(producto));
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const saved_products_str = window.sessionStorage.getItem("data");
+
+    if (saved_products_str) {
+
+        console.log("Se evito una llamada al servidor");
+
+        const saved_products = JSON.parse(saved_products_str);
+
+        saved_products.forEach(producto => mostrarProducto(producto));
+
+        return;
+
+    }
+
+    console.log("Se hizo una llamada al servidor");
+
+    const res = await fetch('/products', {
+        headers: {
+            'content-type': "json/application"
+        }
+    });
+
+    const data = await res.json();
+
+    const { products } = data;
+
+    products.forEach(producto => mostrarProducto(producto));
+
+    window.sessionStorage.setItem("data", JSON.stringify(products));
+});

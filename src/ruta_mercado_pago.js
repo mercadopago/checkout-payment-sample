@@ -5,7 +5,7 @@ import { body, validationResult } from "express-validator";
 const router = Router();
 
 const client = new MercadoPagoConfig({
-    accessToken: "<private key>"
+    accessToken: "APP_USR-3338153327237083-091421-a3dcc8f1836ba5dca212648316f6ecd1-1105831639"
 });
 
 /**
@@ -57,9 +57,9 @@ router.post("/preference", ...preference_validator, async function (req, res) {
     const data = {
         items: res.locals.products,
         back_urls: {
-            "success": `http://localhost:8080/feedback`,
-            "failure": `http://localhost:8080/feedback`,
-            "pending": `http://localhost:8080/feedback`
+            "success": `http://localhost:8080/mp/feedback`,
+            "failure": `http://localhost:8080/mp/feedback`,
+            "pending": `http://localhost:8080/mp/feedback`
         },
         auto_return: "approved",
     };
