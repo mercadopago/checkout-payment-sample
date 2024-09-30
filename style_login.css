@@ -1,0 +1,131 @@
+/* Definición de la paleta de colores */
+:root {
+    /* Colores Primarios */
+    --verde-pasto: rgb(76, 175, 80);
+    --naranja-brillante: rgb(255, 152, 0);
+    --azul-cielo: rgb(33, 150, 243);
+
+    /* Colores Secundarios */
+    --amarillo-suave: rgb(255, 235, 59);
+    --marrón-claro: rgb(121, 85, 72);
+    --gris-claro: rgb(245, 245, 245);
+
+    /* Colores Neutros */
+    --blanco: rgb(255, 255, 255);
+    --gris-oscuro: rgb(51, 51, 51);
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezados */
+h1,
+h2,
+h3 {
+    color: var(--azul-cielo);
+}
+
+/* Enlaces */
+a {
+    color: var(--naranja-brillante);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+button {
+    background-color: var(--verde-pasto);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: var(--naranja-brillante);
+}
+
+/* Pie de página */
+footer {
+    background-color: var(--marrón-claro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Otros estilos */
+.container {
+    padding: 20px;
+}
+
+.header {
+    background-color: var(--azul-cielo);
+    color: var(--blanco);
+    padding: 20px;
+    text-align: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--verde-pasto);
+    padding: 10px;
+}
+
+.navbar a {
+    color: var(--blanco);
+    padding: 100px;
+}
+
+.navbar a:hover {
+    background-color: var(--naranja-brillante);
+    color: var(--gris-oscuro);
+}
+
+/* Estilos para el formulario */
+form {
+    background-color: var(--blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 4px;
+}
+
+form button {
+    background-color: var(--verde-pasto);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button:hover {
+    background-color: var(--naranja-brillante);
+}
