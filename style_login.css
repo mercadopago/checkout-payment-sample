@@ -55,52 +55,29 @@ button:hover {
     background-color: var(--naranja-brillante);
 }
 
-/* Pie de página */
-footer {
-    background-color: var(--marrón-claro);
-    color: var(--blanco);
-    text-align: center;
-    padding: 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
 /* Otros estilos */
-.container {
-    padding: 20px;
-}
-
-.header {
-    background-color: var(--azul-cielo);
-    color: var(--blanco);
-    padding: 20px;
-    text-align: center;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-around;
-    background-color: var(--verde-pasto);
-    padding: 10px;
-}
-
-.navbar a {
-    color: var(--blanco);
-    padding: 100px;
-}
-
-.navbar a:hover {
-    background-color: var(--naranja-brillante);
-    color: var(--gris-oscuro);
+.login_container {
+    max-width: 450px;
+    width: 70vw;
+    margin: 5vh auto;
+    background-color: transparent;
 }
 
 /* Estilos para el formulario */
 form {
     background-color: var(--blanco);
-    padding: 20px;
+    padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+form.invisible {
+    display: none;
+}
+
+form img {
+    margin: auto !important;
 }
 
 form label {
@@ -110,10 +87,11 @@ form label {
 
 form input {
     width: 100%;
-    padding: 8px;
+    padding: .5rem;
     margin-top: 5px;
     border: 1px solid var(--gris-oscuro);
     border-radius: 4px;
+    font-size: 1rem;
 }
 
 form button {
@@ -126,11 +104,29 @@ form button {
     border-radius: 4px;
 }
 
+form button[type="submit"] {
+    margin-top: 0;
+}
+
 form button:hover {
     background-color: var(--naranja-brillante);
 }
 
-/* Banner*/
+/* Estilos para la clase group */
+.group {
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+/* Estilo específico para el input checkbox y su etiqueta */
+.group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.group label.form-check-label {
+    display: inline-block;
+}
 
 .banner {
     width: 100%;
@@ -143,4 +139,46 @@ form button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+nav {
+    background-color: rgb(35, 65, 150);
+    color: rgb(239, 239, 239);
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vh 3vw;
+}
+
+nav img {
+    max-width: 130px;
+    margin: 0;
+    padding: 0;
+}
+
+#open-cart {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 12px;
+    border: none 0px;
+    cursor: pointer;
+}
+
+#open-cart svg {
+    width: 1.5em;
+    height: 1.5em;
+    color: rgb(239, 239, 239);
+}
+
+nav span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Nerko One", cursive;
 }

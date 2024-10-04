@@ -10,34 +10,100 @@
 </head>
 
 <body>
-    <div class="banner">
-        <h2></h2>
-    </div>
-    <div class="container">
-        <h1>Iniciar sesión</h1>
+    <nav>
+        <div class="left">
+            <a href="/"><img src="src/client/img/logo.png" alt=""></a>
+        </div>
+        <div class="right">
+            <button id="open-cart"></button>
+        </div>
+    </nav>
+
+    <div class="login_container">
+
         <form action=# method="post">
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <img src="src/client/img/logo.png" alt="">
 
-            <label for="password">Contraseña:</label>
-            <input type="pass" id="password" name="password" required>
+            <h1>Iniciar sesión</h1>
 
-            <div class="mb-3 form-check">
+            <div class="group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="group">
+                <label for="password">Contraseña:</label>
+                <input type="pass" id="password" name="password" required>
+            </div>
+
+            <div class="group">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button type="submit">Enviar</button>
+
+            <div class="group">
+                <p>¿Todavía no tienes una cuenta? <a href="">Click aquí</a></p>
+            </div>
+
+            <div class="group">
+                <button type="submit">Enviar</button>
+            </div>
         </form>
-    </div>
-    <div class="container">
-        <h1>Usuario no registrado?</h1>
-        <a href="registro.html">Click aquí</a>
+
+        <!-- Quitale la clase invisible para ver el formulario -->
+
+        <form action=# method="post" class="invisible">
+
+            <img src="src/client/img/logo.png" alt="">
+
+            <h1>Formulario de Inscripción</h1>
+
+            <div class="group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+
+            <div class="group">
+                <label for="Direccion">Dirección:</label>
+                <input type="dir" id="direccion" name="direccion" required>
+            </div>
+
+            <div class="group">
+                <label for="Provincia">Provincia:</label>
+                <input type="prov" id="provincia" name="provincia" required>
+            </div>
+
+            <div class="group">
+                <label for="localidad">Localidad:</label>
+                <input type="loc" id="localidad" name="localidad" required>
+            </div>
+
+            <div class="group">
+                <label for="cp">Codigo Postal:</label>
+                <input type="cp" id="cp" name="cp" required>
+            </div>
+
+            <div class="group">
+                <p>¿Ya tienes una cuenta? <a href="">Click aquí</a></p>
+            </div>
+
+            <div class="group">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+
     </div>
 </body>
-
-<footer>
-    Desarrollado por CodiPro
-</footer>
 
 </html>
