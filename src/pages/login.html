@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesión</title>
-    <link rel="stylesheet" href="style_login.css">
-    <link rel="icon" href="src/client/img/Hola mundo animal.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style_login.css">
+    <link rel="icon" href="/img/Hola mundo animal.ico" type="image/x-icon">
 </head>
 
 <body>
     <nav>
         <div class="left">
-            <a href="/"><img src="src/client/img/logo.png" alt=""></a>
+            <a href="/"><img src="/img/logo.png" alt=""></a>
         </div>
         <div class="right">
             <button id="open-cart"></button>
@@ -21,9 +21,9 @@
 
     <div class="login_container">
 
-        <form action=# method="post">
+        <form action=# method="post" class="login">
 
-            <img src="src/client/img/logo.png" alt="">
+            <img src="/img/logo.png" alt="">
 
             <h1>Iniciar sesión</h1>
 
@@ -43,7 +43,7 @@
             </div>
 
             <div class="group">
-                <p>¿Todavía no tienes una cuenta? <a href="">Click aquí</a></p>
+                <p>¿Todavía no tienes una cuenta? <a href="" toSingup>Click aquí</a></p>
             </div>
 
             <div class="group">
@@ -53,9 +53,9 @@
 
         <!-- Quitale la clase invisible para ver el formulario -->
 
-        <form action=# method="post" class="invisible">
+        <form action=# method="post" class="singup invisible">
 
-            <img src="src/client/img/logo.png" alt="">
+            <img src="/img/logo.png" alt="">
 
             <h1>Formulario de Inscripción</h1>
 
@@ -95,7 +95,7 @@
             </div>
 
             <div class="group">
-                <p>¿Ya tienes una cuenta? <a href="">Click aquí</a></p>
+                <p>¿Ya tienes una cuenta? <a href="" toLogin>Click aquí</a></p>
             </div>
 
             <div class="group">
@@ -104,6 +104,31 @@
         </form>
 
     </div>
+
+    <script>
+
+        const loginForm = document.querySelector("form.login");
+        const singupForm = document.querySelector("form.singup");
+
+        const toLoginButton = document.querySelector("a[toLogin]");
+        const toSingupButton = document.querySelector("a[toSingup]");
+
+        function toogleView(event) {
+            event.preventDefault();
+
+            if (loginForm.classList.contains("invisible")) {
+                loginForm.classList.remove("invisible")
+                singupForm.classList.add("invisible")
+            } else {
+                singupForm.classList.remove("invisible")
+                loginForm.classList.add("invisible")
+            }
+        }
+
+        toLoginButton.addEventListener("click", toogleView);
+        toSingupButton.addEventListener("click", toogleView);
+
+    </script>
 </body>
 
 </html>

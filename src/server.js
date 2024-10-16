@@ -10,6 +10,11 @@ const fromRoot = (...p) => path.join(
     ...p
 )
 
+app.use((req, _res, next) => {
+    req.fromRoot = fromRoot;
+    return next();
+});
+
 app.use(express.json());
 
 app.use(express.urlencoded({
@@ -20,4 +25,4 @@ app.use(cors());
 
 app.set("port", process.env.PORT ?? 8080);
 
-app.use(express.static(fromRoot("client")));
+app.use(express.static(fromRoot("public")));
