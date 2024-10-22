@@ -84,7 +84,7 @@ class Carrito {
         product_row.classList.add("product-row");
 
         const product_title = document.createElement("p");
-        product_title.innerText = `${product.title} x ${product.quantity}`;
+        product_title.innerText = `${product.name} x ${product.quantity}`;
 
         const product_price = document.createElement("span");
         product_price.innerText = `$ ${product.price}`;
@@ -205,7 +205,7 @@ const mostrarProducto = (producto) => {
     const price = document.createElement("span");
 
     image.src = producto.image;
-    title.innerText = producto.title;
+    title.innerText = producto.name;
     price.innerText = `$ ${producto.price}`;
 
     header.appendChild(image);
@@ -254,6 +254,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await res.json();
 
     const { products } = data;
+
+    console.log(products);
 
     products.forEach(producto => mostrarProducto(producto));
 
