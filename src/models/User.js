@@ -13,7 +13,7 @@ export default class User {
 
     static async getByEmail(email) {
         const [result] = await pool.query(`SELECT * FROM ${this.table_name} WHERE email = ?`, [email]);
-        return result[0]; // Regresa el primer resultado si existe
+        return result.length > 0 ? result[0] : null; // Regresa el primer resultado si existe
     }
 
     // Obtener un usuario por ID
@@ -24,11 +24,14 @@ export default class User {
 
     // Crear un nuevo usuario
     static async create({ name, email, password, phone, address }) {
+        const id = uuidv4();
+        console.log({ name, email, password, phone, address, id })
         const [result] = await pool.query(
-            `INSERT INTO ${this.table_name} (name, email, password, phone, address) VALUES (?, ?, ?, ?, ?, ?)`,
-            [uuidv4(), name, email, password, phone, address]
+            `INSERT INTO ${this.table_name} (id, name, email, password, phone, address) VALUES (?, ?, ?, ?, ?, ?)`,
+            [id, name, email, password, phone, address]
         );
-        return result.insertId; // Regresa el ID del nuevo usuario
+        if (result) return id; // Regresa el ID del nuevo usuario
+        return null;
     }
 
     // Actualizar un usuario existente
