@@ -10,9 +10,9 @@ CREATE TABLE `users`(
     `id` CHAR(36) NOT NULL,
     `name` VARCHAR(255) NOT NULL,
     `email` VARCHAR(255) NOT NULL,
-    `password` BIGINT NOT NULL,
+    `password` VARCHAR(255) NOT NULL,
     `phone` VARCHAR(255) NOT NULL,
-    `address` BIGINT NOT NULL,
+    `address` VARCHAR(255) NOT NULL,
     PRIMARY KEY(`id`)
 );
 -- Insertar los datos proporcionados en la tabla products

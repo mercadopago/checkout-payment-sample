@@ -105,9 +105,16 @@ class Carrito {
     }
 
     getTotalPrice() {
-        return this.products.reduce(
+        let total_price = this.products.reduce(
             (total, product) => total + (product.price * product.quantity), 0
         );
+
+        if (localStorage.getItem('token')) {
+            total_price -= total_price * 0.01;
+            total_price = `${total_price} (Descuento: 1%)`;
+        }
+
+        return total_price;
     }
 
     async generateNewMPButton(self) {

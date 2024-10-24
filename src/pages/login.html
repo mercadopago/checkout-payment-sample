@@ -95,6 +95,11 @@
             </div>
 
             <div class="group">
+                <label for="password">Contraseña:</label>
+                <input type="pass" id="password" name="password" required>
+            </div>
+
+            <div class="group">
                 <p>¿Ya tienes una cuenta? <a href="" toLogin>Click aquí</a></p>
             </div>
 
@@ -107,26 +112,104 @@
 
     <script>
 
-        const loginForm = document.querySelector("form.login");
-        const singupForm = document.querySelector("form.singup");
+        document.addEventListener("DOMContentLoaded", () => {
 
-        const toLoginButton = document.querySelector("a[toLogin]");
-        const toSingupButton = document.querySelector("a[toSingup]");
+            const token = localStorage.getItem('token');
 
-        function toogleView(event) {
-            event.preventDefault();
-
-            if (loginForm.classList.contains("invisible")) {
-                loginForm.classList.remove("invisible")
-                singupForm.classList.add("invisible")
-            } else {
-                singupForm.classList.remove("invisible")
-                loginForm.classList.add("invisible")
+            if (token) {
+                window.location.href = '/account';
+                return;
             }
-        }
 
-        toLoginButton.addEventListener("click", toogleView);
-        toSingupButton.addEventListener("click", toogleView);
+            const loginForm = document.querySelector("form.login");
+            const singupForm = document.querySelector("form.singup");
+
+            const toLoginButton = document.querySelector("a[toLogin]");
+            const toSingupButton = document.querySelector("a[toSingup]");
+
+            function toggleView(event) {
+                event.preventDefault();
+
+                if (loginForm.classList.contains("invisible")) {
+                    loginForm.classList.remove("invisible");
+                    singupForm.classList.add("invisible");
+                } else {
+                    singupForm.classList.remove("invisible");
+                    loginForm.classList.add("invisible");
+                }
+            }
+
+            toLoginButton.addEventListener("click", toggleView);
+            toSingupButton.addEventListener("click", toggleView);
+
+            // Manejar envío de formulario de inicio de sesión
+            loginForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const email = loginForm.querySelector("#email").value;
+                const password = loginForm.querySelector("#password").value;
+
+                try {
+                    const response = await fetch('/auth/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    const data = await response.json();
+                    if (response.ok) {
+                        // Redirigir a la página principal o mostrar un mensaje de éxito
+                        window.localStorage.setItem("token", data.token);
+                        window.location.href = "/";
+                    } else {
+                        // Mostrar mensaje de error
+                        alert(data.message || "Error al iniciar sesión");
+                    }
+                } catch (error) {
+                    console.error("Error en la solicitud:", error);
+                    alert("Hubo un problema al procesar su solicitud.");
+                }
+            });
+
+            // Manejar envío de formulario de registro
+            singupForm.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const nombre = singupForm.querySelector("#nombre").value;
+                const email = singupForm.querySelector("#email").value;
+                const telefono = singupForm.querySelector("#telefono").value;
+                const direccion = singupForm.querySelector("#direccion").value;
+                const provincia = singupForm.querySelector("#provincia").value;
+                const localidad = singupForm.querySelector("#localidad").value;
+                const password = singupForm.querySelector("#password").value;
+
+                console.log(nombre);
+
+                try {
+                    const response = await fetch('/auth/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ name: nombre, email, phone: telefono, address: `${provincia}, ${localidad}. ${direccion}.`, password })
+                    });
+
+                    const data = await response.json();
+                    if (response.ok) {
+                        // Redirigir a la página principal o mostrar un mensaje de éxito
+                        window.location.href = "/";
+                    } else {
+                        // Mostrar mensaje de error
+                        alert(data.message || "Error al registrar");
+                    }
+                } catch (error) {
+                    console.error("Error en la solicitud:", error);
+                    alert("Hubo un problema al procesar su solicitud.");
+                }
+            });
+        });
 
     </script>
 </body>

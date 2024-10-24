@@ -2,11 +2,13 @@ import { config as setEnviroment } from "dotenv";
 import app from "./server.js";
 import mp_rutas from "./routes/mp.routes.js";
 import products_rutas from "./routes/products.routes.js";
+import auth_rutas from "./routes/auth.routes.js";
 
 setEnviroment();
 
 app.use("/mp", mp_rutas);
 app.use("/products", products_rutas);
+app.use("/auth", auth_rutas);
 
 app.get("/ok", (_req, res) => {
     return res.json({
