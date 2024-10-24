@@ -1,9 +1,14 @@
-import { app } from "./server.js";
+import { config as setEnviroment } from "dotenv";
+import app from "./server.js";
 import mp_rutas from "./routes/mp.routes.js";
 import products_rutas from "./routes/products.routes.js";
+import auth_rutas from "./routes/auth.routes.js";
+
+setEnviroment();
 
 app.use("/mp", mp_rutas);
 app.use("/products", products_rutas);
+app.use("/auth", auth_rutas);
 
 app.get("/ok", (_req, res) => {
     return res.json({
@@ -17,9 +22,11 @@ app.use((req, res) => {
 
     if (page_name == "") page_name = "index";
 
-    return res.sendFile(req.fromRoot("pages", `${page_name}.html`), () => {
-        res.sendFile(req.fromRoot("pages", "404.html"));
+    res.sendFile(req.fromRoot("pages", `${page_name}.html`), (err) => {
+        if (err) res.sendFile(req.fromRoot("pages", "404.html"));
     });
+
+    return;
 
 });
 

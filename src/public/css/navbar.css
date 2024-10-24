@@ -12,17 +12,20 @@ nav {
     padding: 3vh 5vw;
 }
 
-#open-cart {
+#open-cart,
+#user-button {
     background-color: transparent;
     padding: 0;
     border-radius: 12px;
     border: none 0px;
     cursor: pointer;
+    margin: 0 .5rem;
 }
 
-#open-cart svg {
-    width: 1.5em;
-    height: 1.5em;
+#open-cart svg,
+#user-button svg {
+    width: 1.8em;
+    height: 1.8em;
     color: rgb(239, 239, 239);
 }
 
@@ -31,4 +34,5 @@ nav span {
     font-weight: 400;
     font-style: normal;
     font-family: "Nerko One", cursive;
+    cursor: pointer;
 }

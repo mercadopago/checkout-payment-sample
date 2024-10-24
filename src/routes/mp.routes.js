@@ -25,7 +25,7 @@ const preference_error_handler = (request, res, next) => {
     const { products } = request.body;
 
     res.locals.products = products.map(product => ({
-        title: product.title,
+        title: product.name,
         unit_price: Number(product.price),
         quantity: Number(product.quantity),
         currency_id: "ARS"
@@ -38,7 +38,7 @@ const preference_error_handler = (request, res, next) => {
 const preference_validator = [
     body("products").exists("Tu carrito esta vacio"),
     body("products").isArray().withMessage("Este campo debe ser una lista de productos"),
-    body("products.*.title").exists().isString().withMessage("El nombre del producto debe ser un string"),
+    body("products.*.name").exists().isString().withMessage("El nombre del producto debe ser un string"),
     body("products.*.price").exists().isNumeric().withMessage("El precio unitario debe ser un numero"),
     body("products.*.quantity").exists().isNumeric().withMessage("La cantidad debe ser un numero"),
     preference_error_handler

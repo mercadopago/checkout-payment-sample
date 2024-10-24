@@ -84,7 +84,7 @@ class Carrito {
         product_row.classList.add("product-row");
 
         const product_title = document.createElement("p");
-        product_title.innerText = `${product.title} x ${product.quantity}`;
+        product_title.innerText = `${product.name} x ${product.quantity}`;
 
         const product_price = document.createElement("span");
         product_price.innerText = `$ ${product.price}`;
@@ -105,9 +105,16 @@ class Carrito {
     }
 
     getTotalPrice() {
-        return this.products.reduce(
+        let total_price = this.products.reduce(
             (total, product) => total + (product.price * product.quantity), 0
         );
+
+        if (localStorage.getItem('token')) {
+            total_price -= total_price * 0.01;
+            total_price = `${total_price} (Descuento: 1%)`;
+        }
+
+        return total_price;
     }
 
     async generateNewMPButton(self) {
@@ -205,7 +212,7 @@ const mostrarProducto = (producto) => {
     const price = document.createElement("span");
 
     image.src = producto.image;
-    title.innerText = producto.title;
+    title.innerText = producto.name;
     price.innerText = `$ ${producto.price}`;
 
     header.appendChild(image);
@@ -254,6 +261,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const data = await res.json();
 
     const { products } = data;
+
+    console.log(products);
 
     products.forEach(producto => mostrarProducto(producto));
 

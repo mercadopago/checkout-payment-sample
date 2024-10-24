@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="/css/style_profile.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+            <span>Hola Mundo Animal 🐶</span>
+        </div>
+        <div class="right">
+            <button id="open-cart"></button>
+            <a href="/account" id="user-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Perfil de Usuario</h1>
+        </div>
+
+        <div class="profile-details">
+            <div class="profile-group">
+                <label for="name">Nombre:</label>
+                <p id="name">Cargando...</p>
+            </div>
+
+            <div class="profile-group">
+                <label for="email">Email:</label>
+                <p id="email">Cargando...</p>
+            </div>
+
+            <div class="profile-group">
+                <label for="phone">Teléfono:</label>
+                <p id="phone">Cargando...</p>
+            </div>
+
+            <div class="profile-group">
+                <label for="address">Dirección:</label>
+                <p id="address">Cargando...</p>
+            </div>
+        </div>
+        <div class="profile-footer">
+            <button id="singout">Salir de mi cuenta</button>
+        </div>
+    </div>
+
+    <script src="/js/profile.js"></script>
+</body>
+
+</html>
