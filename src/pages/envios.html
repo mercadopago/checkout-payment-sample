@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        header-line {
+            width: 100%;
+            height: 4px;
+            background-color: 33, 150, 243;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de envios</title>
+    <link rel="stylesheet" href="../public/css/style_delivery.css"> <!--FALTA STYLE.CSS-->
+</head>
+<body>
+    <div class=".header-line"></div>
+        <div class="envio-container">
+            <h1>Calculadora de Costo de Envío</h1>
+            <div class="envio-form">
+                <input type="text" id="codigoPostal" placeholder="Ingresa tu código postal">
+                <button onclick="procesarEnvio()">Calcular Envío</button>
+                <p id="costoEnvio"></p>
+            </div>
+    </div>
+
+    <script src="../routes/delivery.routes.js"></script> <!-- Archivo JavaScript donde está la lógica de cálculo -->
+</body>
+</html>
