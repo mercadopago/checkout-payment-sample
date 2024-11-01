@@ -25,22 +25,34 @@ function validarCodigoPostal(codigoPostal) {
 
 // Función principal que usa el sistema de envío
 function procesarEnvio() {
+    //Se obtiene el valor del input de codigo postal
     const codigoPostalInput = document.getElementById("codigoPostal").value;
+    // Referencias a los elementos donde se mostraran los mensajes de costo y error
+    const errorMensaje = document.getElementById("errorMensaje");
+    const costoEnvioElemento = document.getElementById("costoEnvio");
+
+    // Se oculta el mensaje de error y limpiar el mensaje de costo en cada nuevo intento
+    errorMensaje.style.display = "none";
+    costoEnvioElemento.textContent = "";
 
     try {
+        // Llama a la funcion de validacion del codigo postal
         validarCodigoPostal(codigoPostalInput);
-        const costoEnvio = calcularCostoEnvio(codigoPostalInput);
+        // Si es valido se obtiene el costo para el codigo ingresado
+        const costo = calcularCostoEnvio(codigoPostalInput);
         
-        if (typeof costoEnvio === "string") {
-            alert(costoEnvio); // Mensaje si el código no está en la lista
+
+        if (typeof costo === "string") {
+            //Si el codigo No esta en la lista se muestra el mensaje de error.
+            errorMensaje.textContent = costo;
+            errorMensaje.style.display = "block";
         } else {
-            alert(`El costo de envío para el código postal ${codigoPostalInput} es: $${costoEnvio}`);
+            // Si el codigo es valido y esta en la lista, muestra el costo en "costoEnvio"
+            costoEnvioElemento.textContent = `Costo de envio: $${costo}`;
         }
     } catch (error) {
-        alert(error.message); // Muestra el error de validación
+        // Si la validacion falla, muestra el mensaje de error.
+        errorMensaje.textContent = error.message;
+        errorMensaje.style.display = "block";
     }
 }
-
-// Ejemplo de botón en el HTML
-// <input type="text" id="codigoPostal" placeholder="Ingresa tu código postal">
-// <button onclick="procesarEnvio()">Calcular Envío</button>
