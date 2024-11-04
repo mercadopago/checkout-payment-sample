@@ -31,5 +31,5 @@ app.use((req, res) => {
 });
 
 app.listen(app.get("port"), () => {
-    console.log("Server http encendido! 😎");
+    console.log("Server https encendido! 😎");
 });
