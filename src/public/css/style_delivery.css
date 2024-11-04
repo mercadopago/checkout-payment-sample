@@ -1,20 +1,31 @@
 /* Estilo del fondo general */
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+@import 'navbar.css';
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+/* Estilos y fuentes del encabezado */
+.left span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Nerko One", cursive;
+    cursor: pointer;
+}
+/* Reseteo de márgenes y relleno para eliminar el borde blanco alrededor */
+* {
     margin: 0;
-    background-color: #f0f0f0; /* Fondo blanco ligeramente gris */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Linea del encabezado */
-.header-line{
+html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 4px;
-    background-color: rgb(33, 150, 243);
-    position: sticky;
-    top: 0;
+    overflow-x: hidden; /* Evita cualquier desplazamiento horizontal innecesario */
+}
+
+/* Asegúrate de que el nav ocupe toda la anchura */
+nav {
+    width: 100%;
 }
 
 /* Contenedor principal */
@@ -32,6 +43,14 @@ body {
     width: 100%;
     box-sizing: border-box;
 }
+/* Contenedor para el contenido principal */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 1rem; /* Espacio superior para evitar superposición con nav */
+}
+
 /* Estilo del boton de envio */
 .envio-container button {
     width: 100%;
