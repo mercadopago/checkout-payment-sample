@@ -35,10 +35,34 @@
                 <button onclick="procesarEnvio()" role="button">Calcular Envío</button>
                 <p id="costoEnvio"></p>
                 <p id="errorMensaje" style="color: red; display: none;"></p>
+                <button id="infoEnvioBtn" onclick="mostrarInfoEnvio()">Información importante sobre el envío</button>
             </div>
         </div>
     </div>
 
+<!-- Modal con la información del envío -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="cerrarInfoEnvio()">&times;</span>
+            <h2>Información sobre el envío</h2>
+            <p>El costo de envío no está incluido en el precio final de la compra y deberá ser pagado directamente al repartidor.</p>
+            <p>Si decides retirar tu pedido en el local, el envío será completamente gratuito.</p>
+        </div>
+    </div>
+
     <script src="../routes/delivery.routes.js"></script> <!-- Archivo JavaScript donde está la lógica de cálculo -->
+
+    <script>
+      
+        function mostrarInfoEnvio() {
+            document.getElementById("infoModal").style.display = "block";
+        }
+
+        
+        function cerrarInfoEnvio() {
+            document.getElementById("infoModal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
