@@ -49,7 +49,6 @@ function procesarEnvio() {
         } else {
             // Si el codigo es valido y esta en la lista, muestra el costo en "costoEnvio"
             costoEnvioElemento.textContent = `Costo de envio: $${costo}`;
-            mostrarBotonFinalizarCompra();
         }
     } catch (error) {
         // Si la validacion falla, muestra el mensaje de error.
@@ -57,28 +56,4 @@ function procesarEnvio() {
         errorMensaje.style.display = "block";
         if (finalizarCompraBoton) finalizarCompraBoton.style.display = "none";
     }
-}
-
-// Función para mostrar el botón de "Finalizar compra"
-function mostrarBotonFinalizarCompra() {
-    let finalizarCompraBoton = document.getElementById("finalizarCompra");
-
-    // Si el botón no existe aún, lo creamos
-    if (!finalizarCompraBoton) {
-        finalizarCompraBoton = document.createElement("button");
-        finalizarCompraBoton.id = "finalizarCompra";
-        finalizarCompraBoton.textContent = "Finalizar compra";
-        finalizarCompraBoton.style.marginTop = "1rem";
-
-        // Agrega el evento de redirección
-        finalizarCompraBoton.onclick = function() {
-            window.location.href = "factura.html";  // Redirige a la página de la factura
-        };
-
-        // Añade el botón al contenedor principal
-        document.querySelector(".envio-container").appendChild(finalizarCompraBoton);
-    }
-
-    // Muestra el botón si el código postal es válido
-    finalizarCompraBoton.style.display = "block";
 }
