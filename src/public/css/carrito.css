@@ -107,3 +107,21 @@
     height: 1.5rem;
     color: rgb(239, 239, 239);
 }
+
+.button-cont{
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.0rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    bottom: 0; /* Coloca el botón en la parte inferior */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el botón horizontalmente */
+}

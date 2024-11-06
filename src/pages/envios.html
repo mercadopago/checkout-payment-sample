@@ -9,7 +9,12 @@
 <body>
     <nav>
         <div class="left">
-            <span>Hola Mundo Animal 🐶</span>
+            <span onclick="redirigirUsuario()">Hola Mundo Animal 🐶</span>
+            <script>
+                function redirigirUsuario(){
+                window.location.href = 'http://localhost:8080';
+            }
+            </script>
         </div>
         <div class="right">
             <button id="open-cart"></button>
