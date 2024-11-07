@@ -22,6 +22,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 /* Encabezados */
@@ -182,3 +183,53 @@ nav span {
     font-style: normal;
     font-family: "Nerko One", cursive;
 }
+
+/* Footer */
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 2rem 3vw;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer .footer-content {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+footer .social-links a {
+    color: var(--blanco);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+footer .social-links a:hover {
+    color: var(--naranja-brillante);
+}
+
+footer p {
+    margin: 1rem 0 0;
+    color: var(--gris-claro);
+    font-size: 0.8rem;
+}
+
+.social-links i {
+    font-size: 1.5rem;
+    /* Tamaño del icono */
+    margin-right: 8px;
+    /* Espacio entre icono y texto */
+    color: var(--blanco);
+    /* Color del icono */
+}
+
+/* Fin Footer */
