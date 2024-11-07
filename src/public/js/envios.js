@@ -1,15 +1,15 @@
 // Función para calcular el costo de envío basado en el código postal
 function calcularCostoEnvio(codigoPostal) {
     const costosEnvio = {
-           "5521": 3200,
-           "5501": 3300,
-           "5500": 3400,
-           "5539": 3550,
-           "5507": 3700,
-           "5600": 3600,
-           "5613": 3450,
-           "5620": 2450,
-           "5515": 3000,
+        "5521": 3200,
+        "5501": 3300,
+        "5500": 3400,
+        "5539": 3550,
+        "5507": 3700,
+        "5600": 3600,
+        "5613": 3450,
+        "5620": 2450,
+        "5515": 3000,
     };
 
     // Si el código postal está en la lista, devuelve el costo, si no, da un costo estándar
@@ -40,7 +40,7 @@ function procesarEnvio() {
         validarCodigoPostal(codigoPostalInput);
         // Si es valido se obtiene el costo para el codigo ingresado
         const costo = calcularCostoEnvio(codigoPostalInput);
-        
+
 
         if (typeof costo === "string") {
             //Si el codigo No esta en la lista se muestra el mensaje de error.
