@@ -1,0 +1,184 @@
+/* Definición de la paleta de colores */
+:root {
+    /* Colores Primarios */
+    --verde-pasto: rgb(76, 175, 80);
+    --naranja-brillante: rgb(255, 152, 0);
+    --azul-cielo: rgb(33, 150, 243);
+
+    /* Colores Secundarios */
+    --amarillo-suave: rgb(255, 235, 59);
+    --marrón-claro: rgb(121, 85, 72);
+    --gris-claro: rgb(245, 245, 245);
+
+    /* Colores Neutros */
+    --blanco: rgb(255, 255, 255);
+    --gris-oscuro: rgb(51, 51, 51);
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--gris-claro);
+    color: var(--gris-oscuro);
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezados */
+h1,
+h2,
+h3 {
+    color: var(--azul-cielo);
+}
+
+/* Enlaces */
+a {
+    color: var(--naranja-brillante);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Botones */
+button {
+    background-color: var(--verde-pasto);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: var(--naranja-brillante);
+}
+
+/* Otros estilos */
+.login_container {
+    max-width: 450px;
+    width: 70vw;
+    margin: 5vh auto;
+    background-color: transparent;
+}
+
+/* Estilos para el formulario */
+form {
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+form.invisible {
+    display: none;
+}
+
+form img {
+    margin: auto !important;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input {
+    width: 100%;
+    padding: .5rem;
+    margin-top: 5px;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: var(--verde-pasto);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form button[type="submit"] {
+    margin-top: 0;
+}
+
+form button:hover {
+    background-color: var(--naranja-brillante);
+}
+
+/* Estilos para la clase group */
+.group {
+    margin-bottom: 15px;
+    text-align: start;
+}
+
+/* Estilo específico para el input checkbox y su etiqueta */
+.group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.group label.form-check-label {
+    display: inline-block;
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    background-image: url("src/client/img/banner.png");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+nav {
+    background-color: rgb(35, 65, 150);
+    color: rgb(239, 239, 239);
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vh 3vw;
+}
+
+nav img {
+    max-width: 130px;
+    margin: 0;
+    padding: 0;
+}
+
+#open-cart {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 12px;
+    border: none 0px;
+    cursor: pointer;
+}
+
+#open-cart svg {
+    width: 1.5em;
+    height: 1.5em;
+    color: rgb(239, 239, 239);
+}
+
+nav span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Nerko One", cursive;
+}

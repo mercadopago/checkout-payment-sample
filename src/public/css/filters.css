@@ -1,0 +1,64 @@
+.filter-container {
+    background-color: rgba(14, 48, 143, 0.192);
+    padding: 2rem;
+    border-radius: 18px;
+}
+
+.filter-container form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0rem 6rem;
+
+}
+
+.counter-product {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333333ef;
+}
+
+.filter-container form div>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: .5rem;
+    text-align: center;
+    align-items: center;
+    margin: 1vh 0;
+}
+
+form {
+    margin-top: 0;
+}
+
+form p {
+    font-weight: thin;
+}
+
+form div label {
+    margin-right: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+form div {
+    margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media screen and (max-width: 520px) {
+
+    .filter-container form {
+        flex-direction: column;
+    }
+
+}

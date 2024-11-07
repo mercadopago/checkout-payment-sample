@@ -1,0 +1,109 @@
+#carrito {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    border-left: 1px solid #000;
+    transition: all 1s;
+}
+
+#carrito .navbar {
+    background-color: rgb(19, 44, 114);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 5vw;
+}
+
+#carrito .navbar button {
+    background-color: transparent;
+    padding: 0;
+    border: none 0px;
+    cursor: pointer;
+}
+
+#carrito .navbar button svg {
+    width: 1.5em;
+    height: 1.5em;
+    color: rgb(239, 239, 239);
+}
+
+#carrito .navbar span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#carrito .container {
+    background-color: aliceblue;
+    display: flex;
+    text-align: center;
+    padding: 5vh 2vw 0 2vw;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+#carrito button#buy {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (min-width: 500px) {
+    #carrito {
+        min-width: 500px;
+    }
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Estilos para el título del producto */
+.product-row p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Estilos para el precio del producto */
+.product-row span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos para la fila del total */
+.total-row {
+    display: flex;
+    border-top: 1px solid #000;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-row button {
+    background-color: rgb(203, 32, 39);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin: 0 !important;
+    padding: .3rem .5rem .2rem .5rem;
+}
+
+.product-row button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgb(239, 239, 239);
+}
