@@ -1,0 +1,38 @@
+nav {
+    background-color: rgb(35, 65, 150);
+    color: rgb(239, 239, 239);
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 5vw;
+}
+
+#open-cart,
+#user-button {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 12px;
+    border: none 0px;
+    cursor: pointer;
+    margin: 0 .5rem;
+}
+
+#open-cart svg,
+#user-button svg {
+    width: 1.8em;
+    height: 1.8em;
+    color: rgb(239, 239, 239);
+}
+
+nav span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Nerko One", cursive;
+    cursor: pointer;
+}

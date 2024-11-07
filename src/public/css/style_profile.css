@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100%;
+}
+
+nav {
+    background-color: #333;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .left img {
+    height: 40px;
+}
+
+nav .right button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.profile-header h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-group label {
+    font-weight: bold;
+    color: #555;
+}
+
+.profile-group p {
+    color: #333;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 60%;
+    text-align: right;
+}
+
+.profile-footer {
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.profile-footer button {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    max-width: fit-content;
+}
+
+.profile-footer button:hover {
+    background-color: #ff1744;
+}
+
+/* Footer */
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 2rem 3vw;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer .footer-content {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+footer .social-links a {
+    color: var(--blanco);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+footer .social-links a:hover {
+    color: var(--naranja-brillante);
+}
+
+footer p {
+    margin: 1rem 0 0;
+    color: var(--gris-claro);
+    font-size: 0.8rem;
+}
+
+.social-links i {
+    font-size: 1.5rem;
+    /* Tamaño del icono */
+    margin-right: 8px;
+    /* Espacio entre icono y texto */
+    color: var(--blanco);
+    /* Color del icono */
+}
+
+/* Fin Footer */

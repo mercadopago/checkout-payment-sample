@@ -1,27 +1,147 @@
-# Checkout payment processing with Checkout Pro
+# API Documentation
 
-### This is a simple example of how you can accept payments by integrating our [Checkout PRO](https://www.mercadopago.com/developers/en/guides/online-payments/checkout-pro/introduction)
+## Descripción General
 
-### In this repository you will find two main folders:
+## 1. GET `/mp/feedback`
 
-- `client`:
-  Basic implementation of a checkout, complying with the necessary security requirements to collect sensitive user information.
+### Descripción
+Esta ruta recibe la retroalimentación de Mercado Pago después de un intento de pago. Procesa los parámetros enviados por Mercado Pago para proporcionar información sobre la transacción.
 
-  For html/js project: http://localhost:8080
+### Request
+- **Método**: `GET`
+- **URL**: `/mp/feedback`
 
-  For reactjs project: http://localhost:3000
+### Query Params esperados:
+| Parámetro         | Tipo   | Descripción                                |
+|-------------------|--------|--------------------------------------------|
+| `payment_id`      | String | ID del pago procesado por Mercado Pago.    |
+| `status`          | String | Estado de la transacción (`approved`, etc).|
+| `merchant_order_id` | String | ID de la orden del comerciante.            |
 
-- `server`:
-  Basic server-side implementation, which provides static client-side resources and allows the collected information to be published directly to our API to create preference and process payment request using our payment button. Hosted on http://localhost:8080.
+### Response
+- **Código 200 OK**: Devuelve un objeto JSON con los detalles de la transacción recibidos.
+  ```json
+  {
+      "Payment": "payment_id",
+      "Status": "status",
+      "MerchantOrder": "merchant_order_id"
+  }
+  ```
 
-<br>
+### Ejemplo
+#### Petición:
+```http
+GET /feedback?payment_id=12345&status=approved&merchant_order_id=98765
+```
 
-## How to run it
+#### Respuesta:
+```json
+{
+    "Payment": "12345",
+    "Status": "approved",
+    "MerchantOrder": "98765"
+}
+```
 
-Clone or [download](https://github.com/mercadopago/checkout-payment-sample/archive/master.zip) this project, **move to the server implementation** of your choice and **follow its README** instructions.
+---
 
-If you are programming in a different language, we offer a client-side sample which will allow you to write your own server-side implementation using our [API Reference](https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post/) as a guideline.
+## 2. POST `/mp/preference`
 
-## How it looks
+### Descripción
+Esta ruta crea una preferencia de pago en Mercado Pago para los productos proporcionados. Se valida que la estructura de los datos de los productos sea correcta antes de proceder.
 
-https://user-images.githubusercontent.com/30550706/195608149-bc37cd39-4afa-4c75-a3d5-3fd5f5a59bd7.mp4
+### Request
+- **Método**: `POST`
+- **URL**: `/mp/preference`
+
+### Body Params esperados:
+| Parámetro          | Tipo    | Descripción                               |
+|--------------------|---------|-------------------------------------------|
+| `products`         | Array   | Lista de productos que se van a pagar.    |
+| `products[*].title`| String  | Nombre del producto.                      |
+| `products[*].unit_price`| Number | Precio unitario del producto.         |
+| `products[*].quantity`| Number | Cantidad del producto.                  |
+
+### Validaciones:
+1. **`products`**:
+   - Debe existir.
+   - Debe ser un array.
+2. **`products[*].title`**:
+   - Debe existir.
+   - Debe ser un string.
+3. **`products[*].unit_price`**:
+   - Debe existir.
+   - Debe ser un número.
+4. **`products[*].quantity`**:
+   - Debe existir.
+   - Debe ser un número.
+
+### Response
+- **Código 200 OK**: Devuelve un objeto JSON con el ID de la preferencia creada.
+  ```json
+  {
+      "id": "preference_id"
+  }
+  ```
+
+- **Código 400 Bad Request**: Devuelve un objeto JSON con los errores de validación si los datos son incorrectos.
+  ```json
+  {
+      "errors": [
+          {
+              "msg": "Mensaje de error",
+              "param": "nombre_del_parametro",
+              "location": "body"
+          }
+      ]
+  }
+  ```
+
+- **Código 500 Internal Server Error**: Si ocurre un error en la creación de la preferencia de pago.
+  ```json
+  {
+      "message": "Hubo un error al pagar con Mercado Pago"
+  }
+  ```
+
+### Ejemplo
+#### Petición:
+```http
+POST /preference
+Content-Type: application/json
+
+{
+    "products": [
+        {
+            "title": "Producto 1",
+            "unit_price": 100,
+            "quantity": 2
+        },
+        {
+            "title": "Producto 2",
+            "unit_price": 200,
+            "quantity": 1
+        }
+    ]
+}
+```
+
+#### Respuesta (200 OK):
+```json
+{
+    "id": "123456789"
+}
+```
+
+#### Respuesta (400 Bad Request):
+```json
+{
+    "errors": [
+        {
+            "msg": "El nombre del producto debe ser un string",
+            "param": "products[0].title",
+            "location": "body"
+        }
+    ]
+}
+```
