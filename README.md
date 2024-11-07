@@ -58,3 +58,20 @@ DB_PORT=3306
 
 JWT_SECRET="clave secreta 🤫"
 ```
+### Estructura del proyecto
+
+```java
+├── src
+│   ├── routes
+│   ├── public
+│   ├── pages
+│   ├── models
+│   ├── server.js
+│   ├── main.js
+│   └── db.js
+├── db_tables.sql
+├── modelo.png
+├── .env
+├── package.json
+└── README.md
+```
