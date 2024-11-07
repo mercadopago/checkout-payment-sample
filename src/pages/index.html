@@ -7,8 +7,9 @@
   <title>Template Code - Checkout Pro</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <script src="https://sdk.mercadopago.com/js/v2" crossorigin="anonymous"></script>
-  <link rel="icon" href="src/client/img/Hola mundo animal.ico" type="image/x-icon">
+  <link rel="icon" href="/img/Hola mundo animal.ico" type="image/x-icon">
 
 </head>
 
@@ -106,7 +107,10 @@
         <button id="calcularEnvioBtn" onclick="redirigirUsuario()">Calcular costo de envío</button>
         <script>
           function redirigirUsuario() {
+            window.location.href = 'http://127.0.0.1:5500/src/pages/envios.html';
+
             window.location.href = '/envios';
+
           }
         </script>
       </div>
@@ -117,7 +121,15 @@
 </body>
 
 <footer>
-  Desarrollado por CodiPro 🐶
+  <div class="footer-content">
+    <span>&copy; 2024 Hola mundo animal!. Todos los derechos reservados.</span>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+    <p>Desarrollado por CodiPro</p>
+  </div>
 </footer>
 
 </html>
