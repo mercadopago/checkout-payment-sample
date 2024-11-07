@@ -1,147 +1,77 @@
-# API Documentation
+# Eccomerce Hola Mundo Animal 🐶
 
-## Descripción General
+## Descripción
 
-## 1. GET `/mp/feedback`
+Una tienda de productos de calidad para tus mascotas!
 
-### Descripción
-Esta ruta recibe la retroalimentación de Mercado Pago después de un intento de pago. Procesa los parámetros enviados por Mercado Pago para proporcionar información sobre la transacción.
+## Caracteristicas
 
-### Request
-- **Método**: `GET`
-- **URL**: `/mp/feedback`
+- Sistema de usuarios
+- Carrito de compras
+- Filtrado de productos
 
-### Query Params esperados:
-| Parámetro         | Tipo   | Descripción                                |
-|-------------------|--------|--------------------------------------------|
-| `payment_id`      | String | ID del pago procesado por Mercado Pago.    |
-| `status`          | String | Estado de la transacción (`approved`, etc).|
-| `merchant_order_id` | String | ID de la orden del comerciante.            |
+## Tecnologías utilizadas
 
-### Response
-- **Código 200 OK**: Devuelve un objeto JSON con los detalles de la transacción recibidos.
-  ```json
-  {
-      "Payment": "payment_id",
-      "Status": "status",
-      "MerchantOrder": "merchant_order_id"
-  }
-  ```
+- Frontend: **HTML, CSS y Javascript.**
+- Backend: **Node.js, Express y MySql.**
+- Otras herramientas: **Git, Github y drawSQL.**
 
-### Ejemplo
-#### Petición:
-```http
-GET /feedback?payment_id=12345&status=approved&merchant_order_id=98765
+## Instalación
+
+Para instalar el repositorio es necesario hacerlo desde git con alguno de los siguientes comandos
+
+```bash
+# Sí cuentas con gh
+gh repo clone CodeStrong2023/EcommerceHolaMundoAnimal
+# Si solo cuentas con git
+git clone https://github.com/CodeStrong2023/EcommerceHolaMundoAnimal.git
 ```
 
-#### Respuesta:
-```json
-{
-    "Payment": "12345",
-    "Status": "approved",
-    "MerchantOrder": "98765"
-}
+### Requsitos previos
+
+Para poder ejecutar el proyecto con normalidad es necesario tener instalada una versión Node.js igual o superior a la versión 18, además deberá contar con el motor de base de datos MySql.
+
+Por ultimo, se deberá contar con las siguientes tablas dentro de la base de datos:
+
+![Base de datos](/db_diagram.png)
+
+(Los comandos para generar las tablas se encuentran en el archivo `/db_tables.sql`)
+
+### Instalación de dependecias
+
+Para instalar las dependencias del proyecto se debe ejecutar el siguiente comando
+
+```bash
+npm install
 ```
 
----
+### Variables de entorno
 
-## 2. POST `/mp/preference`
+Para que el eccomerce pueda funcionar normalmente se deberán establecer algunas variables de entorno mediante un archivo llamdado `.env`. La plantilla del archivo es la siguiente:
 
-### Descripción
-Esta ruta crea una preferencia de pago en Mercado Pago para los productos proporcionados. Se valida que la estructura de los datos de los productos sea correcta antes de proceder.
+```plaintext
+DB_USER=
+DB_PASSWORD=
+DB_NAME=holamundoanimal
+DB_HOST=
+DB_PORT=3306
 
-### Request
-- **Método**: `POST`
-- **URL**: `/mp/preference`
-
-### Body Params esperados:
-| Parámetro          | Tipo    | Descripción                               |
-|--------------------|---------|-------------------------------------------|
-| `products`         | Array   | Lista de productos que se van a pagar.    |
-| `products[*].title`| String  | Nombre del producto.                      |
-| `products[*].unit_price`| Number | Precio unitario del producto.         |
-| `products[*].quantity`| Number | Cantidad del producto.                  |
-
-### Validaciones:
-1. **`products`**:
-   - Debe existir.
-   - Debe ser un array.
-2. **`products[*].title`**:
-   - Debe existir.
-   - Debe ser un string.
-3. **`products[*].unit_price`**:
-   - Debe existir.
-   - Debe ser un número.
-4. **`products[*].quantity`**:
-   - Debe existir.
-   - Debe ser un número.
-
-### Response
-- **Código 200 OK**: Devuelve un objeto JSON con el ID de la preferencia creada.
-  ```json
-  {
-      "id": "preference_id"
-  }
-  ```
-
-- **Código 400 Bad Request**: Devuelve un objeto JSON con los errores de validación si los datos son incorrectos.
-  ```json
-  {
-      "errors": [
-          {
-              "msg": "Mensaje de error",
-              "param": "nombre_del_parametro",
-              "location": "body"
-          }
-      ]
-  }
-  ```
-
-- **Código 500 Internal Server Error**: Si ocurre un error en la creación de la preferencia de pago.
-  ```json
-  {
-      "message": "Hubo un error al pagar con Mercado Pago"
-  }
-  ```
-
-### Ejemplo
-#### Petición:
-```http
-POST /preference
-Content-Type: application/json
-
-{
-    "products": [
-        {
-            "title": "Producto 1",
-            "unit_price": 100,
-            "quantity": 2
-        },
-        {
-            "title": "Producto 2",
-            "unit_price": 200,
-            "quantity": 1
-        }
-    ]
-}
+JWT_SECRET="clave secreta 🤫"
 ```
+### Estructura del proyecto
 
-#### Respuesta (200 OK):
-```json
-{
-    "id": "123456789"
-}
-```
-
-#### Respuesta (400 Bad Request):
-```json
-{
-    "errors": [
-        {
-            "msg": "El nombre del producto debe ser un string",
-            "param": "products[0].title",
-            "location": "body"
-        }
-    ]
-}
+```java
+├── src
+│   ├── routes
+│   ├── public
+│   ├── pages
+│   ├── models
+│   ├── server.js
+│   ├── main.js
+│   └── db.js
+├── db_tables.sql
+├── modelo.png
+├── .env
+├── package.json
+└── README.md
 ```
