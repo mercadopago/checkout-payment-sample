@@ -1,0 +1,329 @@
+/*products styles*/
+.card-products-container{
+    display: flexbox;
+    flex-wrap: wrap; /* Permite que los productos se envuelvan en la siguiente fila */
+    justify-content: space-between; /* Espacio entre los elementos */
+    flex: 0 0 23%; /* Ajusta el ancho de cada producto */
+    margin: 1%; /* Espaciado entre productos */
+}
+
+.card-products{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+        
+}
+
+.card-products img {
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    
+}
+
+.card-products button{
+    border: none;
+    outline: 0;
+    padding: 10px;
+    color: white;
+    background-color: #7B8C79;
+    text-align: center;
+    cursor: pointer;
+    width:100%;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.cart-btn{
+    position: fixed;
+    top:90vh;
+    right:40px;
+    background-color: #F2A35E;
+    padding: 10px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-btn:hover{
+    cursor:pointer;
+    opacity: 0.9;
+}
+
+.cart-counter{
+    /*display:none;*/
+    position:fixed;
+    top:89vh;
+    right:27px;
+    color: #fff;
+    text-align: center;
+    background-color: #333333;
+    padding: 4px;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    font-size: 15px;
+}
+
+.card-products button:hover{
+    opacity: 0.7;
+}
+
+/*modal*/
+.modal-overlay{
+    display:none;
+    /*background-color: rgb(0,0,0,0.5);*/
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+}
+
+.modal-container{
+    display:none;
+    background-color: #ffffff;
+    /*box-shadow: 0px 3px 6px #00000029;*/
+    padding: 40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    max-width:500px;
+    width: 100%;
+    z-index:1;
+    max-height: 88vh;
+    overflow-y: auto;
+}
+
+.modal-container::-webkit-scrollbar{
+    display:none;
+}
+
+.modal-close{
+    float:right;
+    cursor:pointer;
+}
+
+.modal-title{
+    font-size:24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*modal.body*/
+.modal-body{
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.product{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    margin-bottom:20px;
+}
+
+.product-img{
+    height: 80px;
+    margin-right:20px;
+    width:80px;
+}
+
+.product.info{
+    flex:1;
+    text-align:left;
+}
+.product-info h4{
+    margin-top: 35px;
+}
+
+.quantity{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top:10px;
+   margin-right: 4em; 
+   cursor: pointer;
+}
+
+.quantity-btn-decrese,
+.quantity-btn-increse{
+    color: #333333;
+    cursor: pointer;
+    font-size: 16px;
+    width: 28px;
+    font-weight: bold;
+}
+
+.quantity-input{
+    color: #333333;
+    font-size: 16px;
+    padding: 10 10px;
+    text-align: center;
+    width: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*diseño responsivo*/
+@media (max-width: 768px) {
+    .card-products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 500px){
+.product-img{
+    display: none;
+}
+.modal-body{
+    margin-left:5px;
+    margin-right:5px;
+}
+}
+
+.price{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.delete-produc{
+    margin-top:20px;
+    margin-left:2em;
+    cursor:pointer;
+}
+
+.modal-footer{
+    text-align:center;
+}
+
+.total-price{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.btn-primary{
+    background-color: #D9674E;
+    border-color: #D9674E;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    cursor:pointer;
+    border-radius: 4px;
+}
+.btn-primary:hover{
+    background-color: #F2A35E;
+    border-color: #F2A35E;
+    border-radius: 4px;
+}
+#button-checkout{
+    z-index:10;
+    
+}
+
+/* Añadimos un contenedor para el logotipo y el filtro */
+.logotipo-y-filtro {
+  display: flex;
+  align-items: center;
+  /*justify-content: flex-start;*/
+}
+
+/* Estilo para el logotipo */
+.logotipo {
+  margin-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Añadimos un estilo para el texto del filtro */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 450px;
+    
+}
+
+#filtro {
+    border: 2px solid #ffffff;
+    padding: 10px;
+    flex: 1;
+    outline: none;
+    font-size: 16px; /* Tamaño del texto ingresado */
+    color: #333; /* Color del texto ingresado */
+}
+
+#button {
+    background-color: #7B8C79; /* Color del botón */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#button:hover {
+    background-color: #7B8C79; /* Color al pasar el mouse */
+    opacity: 0.7;
+}
+
+#lupa {
+    color: white; /* Color del ícono */
+    margin: 0; /* Eliminar margen */
+}
+/*sección body*/
+body {
+    margin: 0; /* Elimina el margen predeterminado del body */
+    padding: 0;
+}
+
+header {
+    display: flex; /* Utiliza Flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: relative; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: 200px; /* Altura del header */
+    background-color: #F2A35E; /* Color de fondo opcional */
+}
+.header-content {
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.logo-img {
+    border-radius: 50%;
+}
+
+footer {
+    display: flex; /* Utiliza Flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: fit-content; /* Altura del footer */
+    background-color: #26061B;  /*Color de fondo opcional */
+    position: relative; /* Posiciona el footer */
+    bottom: 0; /* Asegura que el footer esté al final de la página */
+    margin-top: 0px;
+    padding: 0;
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    z-index: -1; /* Asegura que el footer esté detrás de otros elementos */
+}
+.footer-content {
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+.text-footer {
+    color: #ffffff;
+}
