@@ -12,19 +12,18 @@ const mountMPButton = async (preferenceId) => {
 }
 
 class Carrito {
-
     constructor() {
-        this.products = [];
+        this.products = this.loadCartFromLocalStorage();
 
         this.content = document.querySelector("#carrito .container");
         this.element = document.querySelector("#carrito");
         this.open_button = document.querySelector("button#open-cart");
         this.close_button = document.querySelector("button#close-cart");
 
-        this.open_button.innerHTML = this.getEmptyCartIcon();
-
         this.open_button.addEventListener("click", () => this.open());
         this.close_button.addEventListener("click", () => this.close());
+
+        this.updateView();
     }
 
     getFullCartIcon() {
@@ -66,6 +65,7 @@ class Carrito {
 
         this.open_button.innerHTML = this.getFullCartIcon();
 
+        this.updateLocalStorage();
         this.updateView();
     }
 
@@ -76,6 +76,7 @@ class Carrito {
 
         if (this.products.length == 0) this.open_button.innerHTML = this.getEmptyCartIcon();
 
+        this.updateLocalStorage();
         this.updateView();
     }
 
@@ -147,6 +148,7 @@ class Carrito {
         this.content.innerHTML = "";
 
         if (this.products.length === 0) {
+            this.open_button.innerHTML = this.getEmptyCartIcon();
             const empty_message = document.createElement("span");
             empty_message.innerText = "Carrito vacío 🛒";
             this.content.appendChild(empty_message);
@@ -154,6 +156,8 @@ class Carrito {
         }
 
         const fragment = document.createDocumentFragment();
+
+        this.open_button.innerHTML = this.getFullCartIcon();
 
         this.products.forEach(product => {
             const row = this.getRowFromProduct(product);
@@ -188,7 +192,16 @@ class Carrito {
         this.content.appendChild(fragment);
     }
 
+    loadCartFromLocalStorage() {
+        const cart = localStorage.getItem("cart");
+        return cart ? JSON.parse(cart) : [];
+    }
+
+    updateLocalStorage() {
+        localStorage.setItem("cart", JSON.stringify(this.products));
+    }
 }
+
 
 
 const carrito = new Carrito();
