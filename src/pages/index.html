@@ -17,7 +17,7 @@
 
   <nav>
     <div class="left">
-      <span>Hola Mundo Animal 🐶</span>
+      <a href="/">Hola Mundo Animal 🐶</a>
     </div>
     <div class="right">
       <button id="open-cart"></button>
@@ -104,15 +104,7 @@
         <span>Carrito vacío 🛒</span>
       </div>
       <div class="button-cont">
-        <button id="calcularEnvioBtn" onclick="redirigirUsuario()">Calcular costo de envío</button>
-        <script>
-          function redirigirUsuario() {
-            window.location.href = 'http://127.0.0.1:5500/src/pages/envios.html';
-
-            window.location.href = '/envios';
-
-          }
-        </script>
+        <a id="calcularEnvioBtn" href="/envios">Calcular costo de envío</a>
       </div>
     </aside>
   </main>
