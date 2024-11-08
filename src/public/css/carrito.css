@@ -107,3 +107,23 @@
     height: 1.5rem;
     color: rgb(239, 239, 239);
 }
+
+#calcularEnvioBtn {  
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    width: 350px; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.0rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    text-align: center;
+}

@@ -1,28 +1,33 @@
 /* Estilo del fondo general */
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+@import 'navbar.css';
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+/* Estilos y fuentes del encabezado */
+.left span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Nerko One", cursive;
+    cursor: pointer;
+}
+/* Reseteo de márgenes y relleno para eliminar el borde blanco alrededor */
+* {
     margin: 0;
-    background-color: #f0f0f0; /* Fondo blanco ligeramente gris */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.header-line{
+html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 4px;
-    background-color: rgb(33, 150, 243);
-    color: rgb(239, 239, 239);
-    display: flex;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    max-width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0vh 3vw;
+    overflow-x: hidden; /* Evita cualquier desplazamiento horizontal innecesario */
 }
+
+/* Asegúrate de que el nav ocupe toda la anchura */
+nav {
+    width: 100%;
+}
+
 /* Contenedor principal */
 .envio-container {
     text-align: center;
@@ -33,21 +38,29 @@ body {
     background-color: #ffffff; /* Fondo blanco puro para el contenedor */
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 320px;
     width: 100%;
     box-sizing: border-box;
 }
+/* Contenedor para el contenido principal */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 1rem; /* Espacio superior para evitar superposición con nav */
+}
+
 /* Estilo del boton de envio */
 .envio-container button {
     width: 100%;
     background-color: rgb(76, 175, 89);
     color: white;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transition: background-color 0.3s ease; /* Efecto trransicion */
 }
 
@@ -74,14 +87,80 @@ body {
 .envio-form input[type="text"] {
     width: 100%;
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     text-align: center;
+    font-size: 1rem;
 }
 
 /* Mensaje de costo de envío */
 #costoEnvio {
     margin-top: 1rem;
     font-size: 1.2rem;
+    color: green;
+}
+
+#errorMensaje {
+    font-size: 1rem;
+}
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 400px;
+    text-align: center;
+}
+
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#infoEnvioBtn {
+    background-color: #28a745; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease; 
+}
+
+
+#infoEnvioBtn:hover {
+    background-color: rgb(255, 152, 0);
+    color: black;
 }

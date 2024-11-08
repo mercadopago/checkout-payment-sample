@@ -1,29 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <style>
-        header-line {
-            width: 100%;
-            height: 4px;
-            background-color: 33, 150, 243;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de envios</title>
-    <link rel="stylesheet" href="../public/css/style_delivery.css"> <!--FALTA STYLE.CSS-->
+    <title>Sistema de envíos</title>
+
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/css/style_delivery.css">
+
 </head>
+
 <body>
-    <div class=".header-line"></div>
+    <nav>
+        <div class="left">
+            <a href="/">Hola Mundo Animal 🐶</a>
+        </div>
+        <div class="right">
+            <button id="open-cart"></button>
+            <a href="/account" id="user-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+    <div class="header-line"></div> <!-- Corregido: sin el punto -->
+    <div class="main-content"> <!-- Nuevo contenedor para el contenido principal -->
         <div class="envio-container">
-            <h1>Calculadora de Costo de Envío</h1>
+            <h1>Calcula el costo de tu envío en Mendoza</h1>
             <div class="envio-form">
-                <input type="text" id="codigoPostal" placeholder="Ingresa tu código postal">
-                <button onclick="procesarEnvio()">Calcular Envío</button>
+                <input type="text" id="codigoPostal" placeholder="Ingresa tu código postal" aria-label="Código Postal">
+                <button onclick="procesarEnvio()" role="button">Calcular Envío</button>
                 <p id="costoEnvio"></p>
+                <p id="errorMensaje" style="color: red; display: none;"></p>
+                <button id="infoEnvioBtn" onclick="mostrarInfoEnvio()">Información importante sobre el envío</button>
             </div>
+        </div>
     </div>
 
-    <script src="../routes/delivery.routes.js"></script> <!-- Archivo JavaScript donde está la lógica de cálculo -->
+    <!-- Modal con la información del envío -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <!-- Botón para cerrar el modal -->
+            <span class="close" onclick="cerrarInfoEnvio()">&times;</span>
+            <h2>Información sobre el envío</h2>
+            <p>El costo de envío no está incluido en el precio final de la compra y deberá ser pagado directamente al
+                repartidor.</p>
+            <p>Si decides retirar tu pedido en el local, el envío será completamente gratuito.</p>
+        </div>
+    </div>
+
+    <script src="/js/envios.js"></script>
+
+    <script>
+
+        function mostrarInfoEnvio() {
+            document.getElementById("infoModal").style.display = "block";
+        }
+
+
+        function cerrarInfoEnvio() {
+            document.getElementById("infoModal").style.display = "none";
+        }
+    </script>
+
 </body>
+
+
+<footer>
+    <div class="footer-content">
+        <span>&copy; 2024 Hola mundo animal!. Todos los derechos reservados.</span>
+        <div class="social-links">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <p>Desarrollado por CodiPro</p>
+    </div>
+</footer>
+
 </html>

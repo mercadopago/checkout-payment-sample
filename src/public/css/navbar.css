@@ -29,7 +29,9 @@ nav {
     color: rgb(239, 239, 239);
 }
 
-nav span {
+nav .left a {
+    text-decoration: none;
+    color: rgb(224, 224, 224);
     font-size: 2rem;
     font-weight: 400;
     font-style: normal;
