@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link href="/src/public/css/styles.css" rel="stylesheet">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<header>    
+    <div class="logotipo-y-filtro">
+        <div class="logotipo">
+            <img src="/src/public/img/logo2.png" width="150" alt="Logotipo" class="logo-img">
+        </div>
+        <div class="filtro">
+            <label for="filtro"></label>
+            <div class="search-container">
+                <input type="text" id="filtro" placeholder="Busca productos para tu amigo" aria-label="Buscar">
+                <button type="button" aria-label="Buscar producto" id="button">
+                    <h2 class="fas fa-search" id="lupa"></h2>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<body>
+    <!---shop content-->
+    <div class="card-products-container">
+               
+        <div class="card-products" id="shopContent">
+            <!-- productos aquí -->        
+        </div>
+
+        <!--cart btn-->
+        <div class="cart-btn" id="cart-btn">🛒</div>
+        <!--cart counter-->
+        <span class="cart-counter" id="cart-counter">0</span>    
+        <!--modal-->
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-container"id="modal-container"></div>     
+
+    </div>
+
+</body>
+<footer>   
+    <p class="text-footer">© 2024 Equipo Codipro. Todos los derechos reservados.</p>
+</footer>
+
+    <script src="/src/public/js/products.js"></script>
+    <script src="/src/public/js/index.js"></script>
+    <script src="/src/public/js/cart.js"></script>    
+    <script src="/src/public/js/filtro.js"></script>  
+
+</html>
