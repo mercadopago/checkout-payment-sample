@@ -4,6 +4,7 @@ import mp_rutas from "./routes/mp.routes.js";
 import products_rutas from "./routes/products.routes.js";
 import auth_rutas from "./routes/auth.routes.js";
 import cp_routes from "./routes/cp.routes.js";
+import contactRoutes from './routes/contact.routes.js';
 
 setEnviroment();
 
@@ -11,6 +12,7 @@ app.use("/mp", mp_rutas);
 app.use("/products", products_rutas);
 app.use("/auth", auth_rutas);
 app.use("/cp", cp_routes);
+app.use('/', contactRoutes);
 
 app.get("/ok", (_req, res) => {
     return res.json({
@@ -31,6 +33,8 @@ app.use((req, res) => {
     return;
 
 });
+
+
 
 app.listen(app.get("port"), () => {
     console.log("Server https encendido! 😎");

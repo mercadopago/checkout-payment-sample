@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Hola Mundo Animal</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="/css/contacto.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="/img/Hola mundo animal.ico" type="image/x-icon">
+</head>
+
+<body>
+
+  <nav>
+    <div class="left">
+      <a href="/">Hola Mundo Animal 🐶</a>
+    </div>
+    <div class="right">
+      <button id="open-cart"></button>
+      <a href="/account" id="user-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  
+  <main class="container">
+    <div class="banner-contacto">
+      <div class="formulario-banner">
+        <h2 class="banner-title">Contacto</h2>
+        <p>¿Tenes alguna duda? no dudes en contactarnos! Estamos acá para ayudarte.</p>
+        <form action="/contacto" method="POST" class="formulario-contacto">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required class="form-control">
+          </div>
+  
+          <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required class="form-control"></textarea>
+          </div>
+  
+          <button type="submit" class="btn banner-button">Enviar</button>
+        </form>
+      </div>
+      <div class="imagen-banner-contacto">
+        <img src="/assets/gato1.png" alt="gatito banner" class="imagen-gatito-contacto">
+      </div>
+    </div>
+  </main>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <span>&copy; 2024 Hola mundo animal!. Todos los derechos reservados.</span>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+      <p>Desarrollado por CodiPro</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script type="module" src="js/index.js"></script>
+</body>
+
+</html>
