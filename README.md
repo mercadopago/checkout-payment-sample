@@ -1,4 +1,4 @@
-# Eccomerce Hola Mundo Animal 🐶
+# e-Commerce Hola Mundo Animal 🐶
 
 ## Descripción
 
