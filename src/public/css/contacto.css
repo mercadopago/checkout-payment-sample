@@ -1,18 +1,21 @@
 .banner-contacto {
     display: flex;  
     justify-content: center; 
-    align-items: flex-end;  
+    align-items: center;  
     background: #f9f9f9; 
     padding: 20px;  
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    gap: 10px;
+    gap: 20px;
+    flex-wrap: wrap; 
 }
 
 .formulario-banner {
-    max-width: 50%; 
-    margin-right: 10px; 
+    flex: 1;
+    min-width: 280px; 
+    padding: 10px;
+    margin: 0;
 }
 
 .imagen-banner-contacto {
@@ -21,10 +24,11 @@
     margin-left: 0; 
     align-self: flex-end; 
     margin-bottom: -27px;
+    margin: 0;
  }
 
 .imagen-gatito-contacto {
-    max-width: 500px; 
+    max-width: 100%; 
     height: auto; 
     border-radius: 10px;  
     justify-content: baseline;
@@ -100,4 +104,5 @@ p {
   .btn.banner-button:hover {
     background-color: #e65b50;
   }
+  
   
