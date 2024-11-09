@@ -9,6 +9,7 @@ router.get('/contacto', (req, res) => {
   res.sendFile(path.join(process.cwd(), 'src/pages/contacto.html'));
 });
 
+
 // Ruta para manejar el formulario de contacto
 router.post('/contacto', async (req, res) => {
     console.log('Se ha recibido una solicitud POST a /contacto');
