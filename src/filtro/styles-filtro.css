@@ -1,0 +1,1299 @@
+/*
+    Esto se usa para importar archivos css a otro:
+        @import '<ruta a algun archivo css>';
+        @import url('<ruta a algun recurso externo>');
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+main {
+    padding: 3rem 3.5rem;
+}
+
+.invisible {
+    right: -505px !important;
+}
+
+/**
+    Todo el siguiente codigo es de https://necolas.github.io/normalize.css
+    Es un pedazo de codigo que resetea los estilos css que traen por defecto los navegadores
+*/
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+    line-height: 1.15;
+    /* 1 */
+    -webkit-text-size-adjust: 100%;
+    /* 2 */
+}
+
+/* Sections
+     ========================================================================== */
+
+/**
+   * Remove the margin in all browsers.
+   */
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+/**
+   * Render the `main` element consistently in IE.
+   */
+
+main {
+    display: block;
+}
+
+/**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+
+/* Grouping content
+     ========================================================================== */
+
+/**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+
+hr {
+    box-sizing: content-box;
+    /* 1 */
+    height: 0;
+    /* 1 */
+    overflow: visible;
+    /* 2 */
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+
+pre {
+    font-family: monospace, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+}
+
+/* Text-level semantics
+     ========================================================================== */
+
+/**
+   * Remove the gray background on active links in IE 10.
+   */
+
+a {
+    background-color: transparent;
+}
+
+/**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+
+abbr[title] {
+    border-bottom: none;
+    /* 1 */
+    text-decoration: underline;
+    /* 2 */
+    text-decoration: underline dotted;
+    /* 2 */
+}
+
+/**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+/**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+
+code,
+kbd,
+samp {
+    font-family: monospace, monospace;
+    /* 1 */
+    font-size: 1em;
+    /* 2 */
+}
+
+/**
+   * Add the correct font size in all browsers.
+   */
+
+small {
+    font-size: 80%;
+}
+
+/**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   */
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+/* Embedded content
+     ========================================================================== */
+
+/**
+   * Remove the border on images inside links in IE 10.
+   */
+
+img {
+    border-style: none;
+}
+
+/* Forms
+     ========================================================================== */
+
+/**
+   * 1. Change the font styles in all browsers.
+   * 2. Remove the margin in Firefox and Safari.
+   */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+}
+
+/**
+   * Show the overflow in IE.
+   * 1. Show the overflow in Edge.
+   */
+
+button,
+input {
+    /* 1 */
+    overflow: visible;
+}
+
+/**
+   * Remove the inheritance of text transform in Edge, Firefox, and IE.
+   * 1. Remove the inheritance of text transform in Firefox.
+   */
+
+button,
+select {
+    /* 1 */
+    text-transform: none;
+}
+
+/**
+   * Correct the inability to style clickable types in iOS and Safari.
+   */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+/**
+   * Remove the inner border and padding in Firefox.
+   */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+/**
+   * Restore the focus styles unset by the previous rule.
+   */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+    outline: 1px dotted ButtonText;
+}
+
+/**
+   * Correct the padding in Firefox.
+   */
+
+fieldset {
+    padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+   * 1. Correct the text wrapping in Edge and IE.
+   * 2. Correct the color inheritance from `fieldset` elements in IE.
+   * 3. Remove the padding so developers are not caught out when they zero out
+   *    `fieldset` elements in all browsers.
+   */
+
+legend {
+    box-sizing: border-box;
+    /* 1 */
+    color: inherit;
+    /* 2 */
+    display: table;
+    /* 1 */
+    max-width: 100%;
+    /* 1 */
+    padding: 0;
+    /* 3 */
+    white-space: normal;
+    /* 1 */
+}
+
+/**
+   * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+   */
+
+progress {
+    vertical-align: baseline;
+}
+
+/**
+   * Remove the default vertical scrollbar in IE 10+.
+   */
+
+textarea {
+    overflow: auto;
+}
+
+/**
+   * 1. Add the correct box sizing in IE 10.
+   * 2. Remove the padding in IE 10.
+   */
+
+[type="checkbox"],
+[type="radio"] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */
+}
+
+/**
+   * Correct the cursor style of increment and decrement buttons in Chrome.
+   */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+/**
+   * 1. Correct the odd appearance in Chrome and Safari.
+   * 2. Correct the outline style in Safari.
+   */
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    outline-offset: -2px;
+    /* 2 */
+}
+
+/**
+   * Remove the inner padding in Chrome and Safari on macOS.
+   */
+
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+/**
+   * 1. Correct the inability to style clickable types in iOS and Safari.
+   * 2. Change font properties to `inherit` in Safari.
+   */
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+}
+
+/* Interactive
+     ========================================================================== */
+
+/*
+   * Add the correct display in Edge, IE 10+, and Firefox.
+   */
+
+details {
+    display: block;
+}
+
+/*
+   * Add the correct display in all browsers.
+   */
+
+summary {
+    display: list-item;
+}
+
+/* Misc
+     ========================================================================== */
+
+/**
+   * Add the correct display in IE 10+.
+   */
+
+template {
+    display: none;
+}
+
+/**
+   * Add the correct display in IE 10.
+   */
+
+[hidden] {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--gris-oscuro);
+    color: var(--blanco);
+    padding: 2rem 3vw;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+footer .footer-content {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+footer .social-links a {
+    color: var(--blanco);
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+footer .social-links a:hover {
+    color: var(--naranja-brillante);
+}
+
+footer p {
+    margin: 1rem 0 0;
+    color: var(--gris-claro);
+    font-size: 0.8rem;
+}
+
+.social-links i {
+    font-size: 1.5rem;
+    /* Tamaño del icono */
+    margin-right: 8px;
+    /* Espacio entre icono y texto */
+    color: var(--blanco);
+    /* Color del icono */
+}
+/* Fin Footer */
+
+
+/* Contenedor principal */
+.envio-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    /* Fondo blanco puro para el contenedor */
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    max-width: 320px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Contenedor para el contenido principal */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 1rem;
+    /* Espacio superior para evitar superposición con nav */
+}
+
+/* Estilo del boton de envio */
+.envio-container button {
+    width: 100%;
+    background-color: rgb(76, 175, 89);
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    /* Efecto trransicion */
+}
+
+.envio-container button:hover {
+    background-color: rgb(255, 152, 0);
+}
+
+/*Alineacion del contenido */
+.envio-container * {
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+    box-sizing: border-box;
+}
+
+/* Estilo del título */
+.envio-container h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+/* Estilos del formulario */
+.envio-form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Mensaje de costo de envío */
+#costoEnvio {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: green;
+}
+
+#errorMensaje {
+    font-size: 1rem;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#infoEnvioBtn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+
+#infoEnvioBtn:hover {
+    background-color: rgb(255, 152, 0);
+    color: black;
+}
+
+
+
+/*products styles*/
+.card-products-container{
+    display: flexbox;
+    flex-wrap: wrap; /* Permite que los productos se envuelvan en la siguiente fila */
+    justify-content: space-between; /* Espacio entre los elementos */
+    flex: 0 0 23%; /* Ajusta el ancho de cada producto */
+    margin: 1%; /* Espaciado entre productos */
+}
+
+.card-products{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+        
+}
+
+.card-products img {
+    margin-top: 40px;
+    width: 250px;
+    height: 250px;
+    
+}
+
+.card-products button{
+    border: none;
+    outline: 0;
+    padding: 10px;
+    color: white;
+    background-color: #007bff;
+    text-align: center;
+    cursor: pointer;
+    width:100%;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.cart-btn{
+    position: fixed;
+    top:90vh;
+    right:40px;
+    background-color: rgb(35, 65, 150);
+    padding: 10px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.cart-btn:hover{
+    cursor:pointer;
+    opacity: 0.9;
+}
+
+.cart-counter{
+    /*display:none;*/
+    position:fixed;
+    top:89vh;
+    right:27px;
+    color: #fff;
+    text-align: center;
+    background-color: #333333;
+    padding: 4px;
+    border-radius: 50%;
+    height: 17px;
+    width: 17px;
+    font-size: 15px;
+}
+
+.card-products button:hover{
+    opacity: 0.7;
+}
+
+/*modal*/
+.modal-overlay{
+    display:none;
+    background-color: #ffffff;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+    position: fixed;
+}
+
+.modal-container{
+    display:none;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    max-width:500px;
+    width: 100%;
+    z-index:1;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: fixed;
+}
+
+.modal-container::-webkit-scrollbar{
+    display:none;
+}
+
+.modal-close{
+    float:right;
+    cursor:pointer;
+}
+
+.modal-title{
+    font-size:24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*modal.body*/
+.modal-body{
+    margin-bottom:20px;
+    text-align:center;
+    background-color: #fff;
+}
+
+.product{
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    margin-bottom:20px;
+}
+
+.product-img{
+    height: 80px;
+    margin-right:20px;
+    width:80px;
+}
+
+.product.info{
+    flex:1;
+    text-align:left;
+}
+.product-info h4{
+    margin-top: 35px;
+}
+
+.quantity{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top:10px;
+   margin-right: 4em; 
+   cursor: pointer;
+}
+
+.quantity-btn-decrese,
+.quantity-btn-increse{
+    color: #333333;
+    cursor: pointer;
+    font-size: 16px;
+    width: 28px;
+    font-weight: bold;
+}
+
+.quantity-input{
+    color: #333333;
+    font-size: 16px;
+    padding: 10 10px;
+    text-align: center;
+    width: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*prueba diseño responsivo*/
+@media (max-width: 768px) {
+    .card-products {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 500px){
+.product-img{
+    display: none;
+}
+.modal-body{
+    margin-left:5px;
+    margin-right:5px;
+}
+}
+
+.price{
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.delete-produc{
+    margin-top:20px;
+    margin-left:2em;
+    cursor:pointer;
+}
+
+.modal-footer{
+    text-align:center;
+}
+
+.total-price{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+.btn-primary{
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    cursor:pointer;
+    border-radius: 4px;
+}
+.btn-primary:hover{
+    background-color: #0056b3;
+    border-color: #0056b3;
+    border-radius: 4px;
+}
+#button-checkout{
+    z-index:10;
+    
+}
+
+/* Añadimos un contenedor para el logotipo y el filtro */
+.logotipo-y-filtro {
+  display: flex;
+  align-items: center;
+  /*justify-content: flex-start;*/
+}
+
+/* Estilo para el logotipo */
+.logotipo {
+  margin-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Añadimos un estilo para el texto del filtro */
+
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ffffff;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 450px;
+    
+}
+
+#filtro {
+    border: 3px solid #007bff;
+    padding: 10px;
+    flex: 1;
+    border-radius: 6px;
+    outline: none;
+    font-size: 16px; /* Tamaño del texto ingresado */
+    color: #333; /* Color del texto ingresado */
+}
+
+#button {
+    background-color: #fff; /* Color del botón */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#button:hover {
+    background-color: #fff; /* Color al pasar el mouse */
+    opacity: 0.7;
+}
+
+#lupa {
+    color: #007bff; /* Color del ícono */
+    margin: 0; /* Eliminar margen */
+}
+/*sección body*/
+body {
+    margin: 0; /* Elimina el margen predeterminado del body */
+    padding: 0;
+}
+
+header {
+    display: flex; /* Utiliza Flexbox para centrar el contenido */
+    flex-direction: column; /* Alinea los elementos en columna */
+    align-items: relative; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    height: 200px; /* Altura del header */
+    background-color:  #fff; /* Color de fondo opcional */
+    color: rgb(35, 65, 150);
+}
+.header-content {
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+.logo-img {
+    border-radius: 50%;
+}
+
+/*banner*/
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f3f4f6;
+    flex-wrap: wrap;
+    margin: 2vh 0;
+}
+
+.banner div {
+    flex: 1;
+    min-width: 280px;
+    padding: 10px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #ff6f61;
+    font-weight: bold;
+}
+
+.banner p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.banner a {
+    background-color: #ff6f61;
+    color: white;
+    padding: 12px 30px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.banner :first-child * {
+    margin: 30px 0;
+}
+
+@media (max-width: 800px) {
+    .banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .banner div {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .banner h1 {
+        font-size: 24px;
+    }
+
+    .banner p {
+        font-size: 16px;
+    }
+
+    .banner a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/*navbar.css*/
+nav {
+    background-color: rgb(35, 65, 150);
+    color: rgb(239, 239, 239);
+    display: flex;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 5vw;
+}
+
+#open-cart,
+#user-button {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 12px;
+    border: none 0px;
+    cursor: pointer;
+    margin: 0 .5rem;
+}
+
+#open-cart svg,
+#user-button svg {
+    width: 1.8em;
+    height: 1.8em;
+    color: rgb(239, 239, 239);
+}
+
+nav .left a {
+    text-decoration: none;
+    color: rgb(224, 224, 224);
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Nerko One", cursive;
+    cursor: pointer;
+}
+
+/*products*/
+#products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+    padding: 5vh 0;
+    justify-items: center;
+}
+
+#products .container {
+    background-color: transparent;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #333;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 5px;
+    /* Ajustado para igualar el tamaño */
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    /* Altura fija para los productos */
+}
+
+#products div>div:first-child {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#products img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+#products div>div:last-child {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* Hace que este contenedor ocupe el espacio restante */
+    justify-content: space-between;
+    /* Espacio distribuido entre el contenido */
+}
+
+#products p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+}
+
+#products span {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+#products button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#products button:hover {
+    background-color: #0056b3;
+}
+
+/*carrito*/
+#carrito {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    border-left: 1px solid #000;
+    transition: all 1s;
+}
+
+#carrito .navbar {
+    background-color: rgb(19, 44, 114);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3vh 5vw;
+}
+
+#carrito .navbar button {
+    background-color: transparent;
+    padding: 0;
+    border: none 0px;
+    cursor: pointer;
+}
+
+#carrito .navbar button svg {
+    width: 1.5em;
+    height: 1.5em;
+    color: rgb(239, 239, 239);
+}
+
+#carrito .navbar span {
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#carrito .container {
+    background-color: aliceblue;
+    display: flex;
+    text-align: center;
+    padding: 5vh 2vw 0 2vw;
+    min-height: 100%;
+    flex-direction: column;
+}
+
+#carrito button#buy {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media screen and (min-width: 500px) {
+    #carrito {
+        min-width: 500px;
+    }
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* Estilos para el título del producto */
+.product-row p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Estilos para el precio del producto */
+.product-row span {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilos para la fila del total */
+.total-row {
+    display: flex;
+    border-top: 1px solid #000;
+    justify-content: space-between;
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product-row button {
+    background-color: rgb(31, 1, 2);
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin: 0 !important;
+    padding: .3rem .5rem .2rem .5rem;
+}
+
+.product-row button svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgb(239, 239, 239);
+}
+
+#calcularEnvioBtn {  
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    width: 350px; 
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.0rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: absolute;
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    text-align: center;
+}
+
+/*filters*/
+.filter-container {
+    background-color: rgba(14, 48, 143, 0.192);
+    padding: 2rem;
+    border-radius: 18px;
+}
+
+.filter-container form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0rem 6rem;
+
+}
+
+.counter-product {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333333ef;
+}
+
+.filter-container form div>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: .5rem;
+    text-align: center;
+    align-items: center;
+    margin: 1vh 0;
+}
+
+form {
+    margin-top: 0;
+}
+
+form p {
+    font-weight: thin;
+}
+
+form div label {
+    margin-right: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+}
+
+form div {
+    margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media screen and (max-width: 520px) {
+
+    .filter-container form {
+        flex-direction: column;
+    }
+
+}
