@@ -1,4 +1,4 @@
-const express = require("express"); //NodeRequire
+const express = require("express"); //reemplazo require por NodeRequire para probar
 const app = express();
 const cors = require("cors");
 const mercadopago = require("mercadopago");
@@ -9,7 +9,6 @@ mercadopago.configure({
 	access_token:"APP_USR-YOUR ACCESS TOKEN", 
 });
 
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -18,7 +17,7 @@ app.use(express.static(path.join(__dirname,"../filtro")))
 app.use(cors());
 
 app.get("/", function () {
-	(path.resolve(__dirname,"..","../filtro","./pages/index.html"));
+	(path.resolve(__dirname,"..","../filtro","./filtro.html"));
 
 });
 

@@ -75,8 +75,6 @@ const displayCart =() =>{
     });
     });
 
-
-
     // modal fotter
     const total = cart.reduce((acc,el) => acc + el.price* el.quanty, 0 );
 
@@ -94,7 +92,7 @@ const displayCart =() =>{
 // mp;
 // Add SDK credentials
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-    const mercadopago = new MercadoPago("APP_USR-c1976322-7e81-4621-a8e2-bf9fdeebb0ba", {
+    const mercadopago = new MercadoPago("APP_USR-YOUR PUBLIC KEY", {
       locale: 'es-AR' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
   });
   
@@ -134,7 +132,7 @@ const displayCart =() =>{
     const bricksBuilder = mercadopago.bricks();
   
     const renderComponent = async (bricksBuilder) => {
-      //ya se reinicio el botón
+      //if (window.checkoutButton) window.checkoutButton.unmount(); //ya se reinicio el botón
       
       await bricksBuilder.create(
         'wallet',
@@ -156,7 +154,7 @@ const displayCart =() =>{
 } else {
     const modalText=document.createElement("h2");
     modalText.className="modal-body";
-    modalText.innerText="you cart is empty";
+    modalText.innerText="Tu carrito está vacío";
     modalContainer.append(modalText);
   }
 

@@ -1,4 +1,4 @@
-// Simulador de filtro 
+// js filtro
 document.getElementById('button').addEventListener('click', function() {
     buscarProductos(); // Llama a la función buscarProductos
 });
@@ -9,7 +9,7 @@ document.getElementById('filtro').addEventListener('keypress', function(event) {
 });
 
 function buscarProductos() {
-    const busqueda = document.getElementById('filtro').value.toLowerCase(); // 'busqueda' a 'filtro'
+    const busqueda = document.getElementById('filtro').value.toLowerCase(); // Cambiar 'busqueda' a 'filtro'
     const productos = document.querySelectorAll('.producto');
 
     productos.forEach(producto => {
