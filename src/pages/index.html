@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template Code - Checkout Pro</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://sdk.mercadopago.com/js/v2" crossorigin="anonymous"></script>
+  <link rel="icon" href="/img/Hola mundo animal.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="left">
+      <a href="/">Hola Mundo Animal 🐶</a>
+    </div>
+    <div class="right">
+      <button id="open-cart"></button>
+      <a href="/account" id="user-button">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="banner">
+      <div>
+        <h1>¡Únete a nuestra comunidad PetShop!</h1>
+        <p>Inicia sesión y descubre <strong>ofertas exclusivas</strong>, <strong>beneficios para miembros</strong>, y un
+          seguimiento fácil de tus <strong>pedidos</strong>.</p>
+        <a href="/login"  class="btn-contacto" style="margin-right: 30px;margin-left: 15px;">Inicia sesión</a>
+        <a href="/contacto" class="btn-contacto">Contactanos</a>
+      </div>
+
+
+      <img src="/assets/perrito_banner.png" alt="perrito banner">
+    </div>
+
+    <div class="filter-container">
+      <span class="counter-product">10 PRODUCTOS</span>
+      <form>
+        <div>
+          <p>TIPO</p>
+          <div>
+            <input type="checkbox" name="" id="seleccion_gato">
+            <label for="seleccion_gato">Gato</label>
+          </div>
+          <div>
+            <input type="checkbox" name="" id="seleccion_perro">
+            <label for="seleccion_perro">Perro</label>
+          </div>
+        </div>
+        <div>
+          <p>SUB-CATEGORÍAS</p>
+          <div>
+            <input type="checkbox" name="" id="seleccion_cachorro">
+            <label for="seleccion_cachorro">Cachorro</label>
+          </div>
+          <div>
+            <input type="checkbox" name="" id="seleccion_adulto">
+            <label for="seleccion_adulto">Adulto</label>
+          </div>
+        </div>
+        <div>
+          <p>PRECIO</p>
+          <div>
+            <input type="checkbox" name="" id="seleccion_cachorro">
+            <label for="seleccion_cachorro">$0 — $5000</label>
+          </div>
+          <div>
+            <input type="checkbox" name="" id="seleccion_adulto">
+            <label for="seleccion_adulto">$5000 — $9000</label>
+          </div>
+          <div>
+            <input type="checkbox" name="" id="seleccion_adulto">
+            <label for="seleccion_adulto">$9000</label>
+          </div>
+      </form>
+    </div>
+    </div>
+
+    <section id="products"></section>
+    <aside id="carrito" class="invisible">
+      <div class="navbar">
+        <span>
+          🐶
+        </span>
+        <button id="close-cart">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="container">
+        <span>Carrito vacío 🛒</span>
+      </div>
+      <div class="button-cont">
+        <a id="calcularEnvioBtn" href="/envios">Calcular costo de envío</a>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="js/index.js"></script>
+</body>
+
+<footer>
+  <div class="footer-content">
+    <span>&copy; 2024 Hola mundo animal!. Todos los derechos reservados.</span>
+    <div class="social-links">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+    <p>Desarrollado por CodiPro</p>
+  </div>
+</footer>
+
+</html>

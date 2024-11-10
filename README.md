@@ -1,27 +1,77 @@
-# Checkout payment processing with Checkout Pro
+# e-Commerce Hola Mundo Animal 🐶
 
-### This is a simple example of how you can accept payments by integrating our [Checkout PRO](https://www.mercadopago.com/developers/en/guides/online-payments/checkout-pro/introduction)
+## Descripción
 
-### In this repository you will find two main folders:
+Una tienda de productos de calidad para tus mascotas!
 
-- `client`:
-  Basic implementation of a checkout, complying with the necessary security requirements to collect sensitive user information.
+## Caracteristicas
 
-  For html/js project: http://localhost:8080
+- Sistema de usuarios
+- Carrito de compras
+- Filtrado de productos
 
-  For reactjs project: http://localhost:3000
+## Tecnologías utilizadas
 
-- `server`:
-  Basic server-side implementation, which provides static client-side resources and allows the collected information to be published directly to our API to create preference and process payment request using our payment button. Hosted on http://localhost:8080.
+- Frontend: **HTML, CSS y Javascript.**
+- Backend: **Node.js, Express y MySql.**
+- Otras herramientas: **Git, Github y drawSQL.**
 
-<br>
+## Instalación
 
-## How to run it
+Para instalar el repositorio es necesario hacerlo desde git con alguno de los siguientes comandos
 
-Clone or [download](https://github.com/mercadopago/checkout-payment-sample/archive/master.zip) this project, **move to the server implementation** of your choice and **follow its README** instructions.
+```bash
+# Sí cuentas con gh
+gh repo clone CodeStrong2023/EcommerceHolaMundoAnimal
+# Si solo cuentas con git
+git clone https://github.com/CodeStrong2023/EcommerceHolaMundoAnimal.git
+```
 
-If you are programming in a different language, we offer a client-side sample which will allow you to write your own server-side implementation using our [API Reference](https://www.mercadopago.com/developers/en/reference/preferences/_checkout_preferences/post/) as a guideline.
+### Requsitos previos
 
-## How it looks
+Para poder ejecutar el proyecto con normalidad es necesario tener instalada una versión Node.js igual o superior a la versión 18, además deberá contar con el motor de base de datos MySql.
 
-https://user-images.githubusercontent.com/30550706/195608149-bc37cd39-4afa-4c75-a3d5-3fd5f5a59bd7.mp4
+Por ultimo, se deberá contar con las siguientes tablas dentro de la base de datos:
+
+![Base de datos](/db_diagram.png)
+
+(Los comandos para generar las tablas se encuentran en el archivo `/db_tables.sql`)
+
+### Instalación de dependecias
+
+Para instalar las dependencias del proyecto se debe ejecutar el siguiente comando
+
+```bash
+npm install
+```
+
+### Variables de entorno
+
+Para que el eccomerce pueda funcionar normalmente se deberán establecer algunas variables de entorno mediante un archivo llamdado `.env`. La plantilla del archivo es la siguiente:
+
+```plaintext
+DB_USER=
+DB_PASSWORD=
+DB_NAME=holamundoanimal
+DB_HOST=
+DB_PORT=3306
+
+JWT_SECRET="clave secreta 🤫"
+```
+### Estructura del proyecto
+
+```java
+├── src
+│   ├── routes
+│   ├── public
+│   ├── pages
+│   ├── models
+│   ├── server.js
+│   ├── main.js
+│   └── db.js
+├── db_tables.sql
+├── modelo.png
+├── .env
+├── package.json
+└── README.md
+```
