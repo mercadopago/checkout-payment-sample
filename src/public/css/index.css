@@ -595,3 +595,26 @@ footer p {
     background-color: rgb(255, 152, 0);
     color: black;
 }
+
+.btn-contacto {
+    display: inline-block;
+    background-color: #ff6f61;  /* Mismo color que otros botones */
+    color: #fff;  /* Color del texto en blanco */
+    padding: 8px 20px;  /* Tamaño del botón */
+    font-size: 14px;  /* Tamaño de fuente */
+    text-decoration: none;  /* Sin subrayado */
+    border-radius: 5px;  /* Bordes redondeados */
+    font-weight: bold;
+    margin-left: 15px;  /* Separación con otros elementos */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Animación suave */
+    cursor: pointer;
+}
+
+.btn-contacto:hover {
+    background-color: #e65b50;  /* Cambiar el color al pasar el mouse */
+    transform: translateY(-2px);  /* Elevación al pasar el mouse */
+}
+
+.btn-contacto:active {
+    transform: translateY(0);  /* Volver a su posición original al presionar */
+}

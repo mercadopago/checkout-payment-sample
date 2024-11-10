@@ -1,0 +1,108 @@
+.banner-contacto {
+    display: flex;  
+    justify-content: center; 
+    align-items: center;  
+    background: #f9f9f9; 
+    padding: 20px;  
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    gap: 20px;
+    flex-wrap: wrap; 
+}
+
+.formulario-banner {
+    flex: 1;
+    min-width: 280px; 
+    padding: 10px;
+    margin: 0;
+}
+
+.imagen-banner-contacto {
+    max-width: 40%;  
+    text-align: center;  
+    margin-left: 0; 
+    align-self: flex-end; 
+    margin-bottom: -27px;
+    margin: 0;
+ }
+
+.imagen-gatito-contacto {
+    max-width: 100%; 
+    height: auto; 
+    border-radius: 10px;  
+    justify-content: baseline;
+    
+}
+
+.banner-contacto .banner-title {
+    font-size: 32px;  
+    color: #ff6f61;  
+    font-weight: bold;  
+    margin-bottom: 2px;  
+}
+
+p {
+    font-size: 18px;  
+    line-height: 1.6;  
+    color: #000000;  
+    margin-bottom: 20px; 
+    text-align: justify;  
+
+}
+
+.formulario-contacto {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  .form-control:focus {
+    border-color: #ff6f61;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.5);
+  }
+  
+  .btn.banner-button {
+    display: inline-block;
+    background-color: #ff6f61;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn.banner-button:hover {
+    background-color: #e65b50;
+  }
+  
+  
