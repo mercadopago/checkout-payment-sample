@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de productos</title>
+    <link href="./styles-filtro.css" rel="stylesheet">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <nav>
+        <div class="left">
+          <a href="/">Hola Mundo Animal 🐶</a>
+        </div>
+        <div class="right">
+          <button id="open-cart"></button>
+          <a href="/account" id="user-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+              class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+            </svg>
+          </a>
+        </div>
+      </nav>
+      <header>    
+        <div class="logotipo-y-filtro">
+            <div class="logotipo">
+                <img src="./logo2.png" width="150" alt="Logotipo" class="logo-img">
+            </div>
+            <div class="filtro">
+                <label for="filtro"></label>
+                <div class="search-container">
+                    <input type="text" id="filtro" placeholder="Busca productos para tu amigo" aria-label="Buscar">
+                    <button type="button" aria-label="Buscar producto" id="button">
+                        <h2 class="fas fa-search" id="lupa"></h2>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+    </header>
+    <!---shop content-->
+    <div class="card-products-container">
+               
+      <div class="card-products" id="shopContent">
+          <!-- Agregar más productos aquí -->        
+      </div>
+
+      <!--cart btn-->
+      <div class="cart-btn" id="cart-btn">🛒</div>
+      <!--cart counter-->
+      <span class="cart-counter" id="cart-counter">0</span>    
+      <!--modal-->
+      <div class="modal-overlay" id="modal-overlay"></div>
+      <div class="modal-container"id="modal-container"></div>     
+
+    </div>
+    <section id="products"></section>
+    <aside id="carrito" class="invisible">
+    <div class="navbar">
+      <span>
+        🐶
+      </span>
+      <button id="close-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+          stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="container">
+      <span>Carrito vacío 🛒</span>
+    </div>
+    <div class="button-cont">
+      <a id="calcularEnvioBtn" href="/envios">Calcular costo de envío</a>
+    </div>
+  </aside>
+</body>
+<footer>   
+    <div class="footer-content">
+        <span>&copy; 2024 Hola mundo animal!. Todos los derechos reservados.</span>
+        <div class="social-links">
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+        <p>Desarrollado por CodiPro</p>
+      </div>
+</footer>
+
+    <script src="products-filtro.js"></script>
+    <script src="index-filtro.js"></script>
+    <script src="cart-filtro.js"></script>    
+    <script src="filtro.js"></script>  
+
+</html>
