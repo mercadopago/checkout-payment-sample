@@ -52,8 +52,10 @@ router.post("/register", async (req, res) => {
     }
 });
 
-router.post("/login", async (req, res) => {
+router.post("/login", async (req, res,) => {
     try {
+        
+        console.log("Datos recibidos en /auth/login:", req.body);
         const { email, password } = req.body;
 
         // Buscar al usuario por email
@@ -74,6 +76,7 @@ router.post("/login", async (req, res) => {
 
         return res.status(200).json({ message: "Inicio de sesión exitoso.", token });
     } catch (error) {
+        console.error("Error en /auth/login:", error);
         return res.status(500).json({ message: "Error en el servidor.", error });
     }
 });

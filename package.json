@@ -12,11 +12,11 @@
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.20.0",
+    "express": "^4.21.1",
     "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
     "mercadopago": "^2.0.15",
-    "mysql2": "3.11.3",
+    "mysql2": "^3.11.3",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
@@ -24,6 +24,6 @@
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/uuid": "^10.0.0",
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.7"
   }
 }

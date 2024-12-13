@@ -151,7 +151,7 @@
                 const password = loginForm.querySelector("#password").value;
 
                 try {
-                    const response = await fetch('/auth/login', {
+                    const response = await fetch('http://localhost:8080/auth/login', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -169,7 +169,7 @@
                         alert(data.message || "Error al iniciar sesión");
                     }
                 } catch (error) {
-                    console.error("Error en la solicitud:", error);
+                    console.log("Error en la solicitud:", error);
                     alert("Hubo un problema al procesar su solicitud.");
                 }
             });
