@@ -15,12 +15,21 @@ CREATE TABLE `users`(
     `address` VARCHAR(255) NOT NULL,
     PRIMARY KEY(`id`)
 );
-CREATE TABLE `codigos_postales`(
-        `CP` INTEGER PRIMARY KEY,
-    	`price` INTEGER NOT NULL,
-        `Provincia` VARCHAR(255) NOT NULL,
-        `Localidad` VARCHAR(255) NOT NULL
+CREATE TABLE `codigos_postales` (
+    `CP` INTEGER PRIMARY KEY,
+    `price` INTEGER NOT NULL,
+    `Provincia` VARCHAR(255) NOT NULL,
+    `Localidad` VARCHAR(255) NOT NULL
 );
+CREATE TABLE mensajes_contacto (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  mensaje TEXT NOT NULL,
+  fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
 -- Insertar los datos proporcionados en la tabla products
 INSERT INTO `products` (`id`, `name`, `price`, `image`, `tags`) VALUES
 (UUID(), 'Old Prince Premium (Perro cachorro)', 6400, '/img/productos/1.webp', '["perro", "cachorro"]'),

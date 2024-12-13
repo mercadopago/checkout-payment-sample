@@ -17,3 +17,4 @@ process.on("exit", () => {
     pool.destroy()
     console.log("Se cerro la conexión a la base de datos :)")
 })
+

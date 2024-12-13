@@ -1,7 +1,3 @@
-document.querySelector("nav .left span").addEventListener("click", () => {
-    window.location.href = '/';
-})
-
 document.querySelector("#singout").addEventListener("click", () => {
     window.localStorage.removeItem("token");
     window.location.href = '/';
