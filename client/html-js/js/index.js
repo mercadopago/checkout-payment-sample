@@ -1,18 +1,17 @@
 // Add SDK credentials
 // REPLACE WITH YOUR PUBLIC KEY AVAILABLE IN: https://developers.mercadopago.com/panel
-const mercadopago = new MercadoPago('<PUBLIC_KEY>', {
-  locale: '<LOCALE>' // The most common are: 'pt-BR', 'es-AR' and 'en-US'
+const mercadopago = new MercadoPago("<PUBLIC_KEY>", {
+  locale: "<LOCALE>", // The most common are: 'pt-BR', 'es-AR' and 'en-US'
 });
 
 // Handle call to backend and generate preference.
 document.getElementById("checkout-btn").addEventListener("click", function () {
-
-  $('#checkout-btn').attr("disabled", true);
+  $("#checkout-btn").attr("disabled", true);
 
   const orderData = {
     quantity: document.getElementById("quantity").value,
     description: document.getElementById("product-description").innerHTML,
-    price: document.getElementById("unit-price").innerHTML
+    price: document.getElementById("unit-price").innerHTML,
   };
 
   fetch("http://localhost:8080/create_preference", {
@@ -35,7 +34,7 @@ document.getElementById("checkout-btn").addEventListener("click", function () {
     })
     .catch(function () {
       alert("Unexpected error");
-      $('#checkout-btn').attr("disabled", false);
+      $("#checkout-btn").attr("disabled", false);
     });
 });
 
@@ -46,20 +45,28 @@ function createCheckoutButton(preferenceId) {
   const renderComponent = async (bricksBuilder) => {
     if (window.checkoutButton) window.checkoutButton.unmount();
     await bricksBuilder.create(
-      'wallet',
-      'button-checkout', // class/id where the payment button will be displayed
+      "wallet",
+      "button-checkout", // class/id where the payment button will be displayed
       {
         initialization: {
-          preferenceId: preferenceId
+          preferenceId: preferenceId,
+        },
+        customization: {
+          // Custom style example after migration process
+          // theme: "dark",
+          // customStyle: {
+          //   valueProp: "practicality",
+          //   valuePropColor: "black",
+          // },
         },
         callbacks: {
           onError: (error) => console.error(error),
-          onReady: () => {}
-        }
+          onReady: () => {},
+        },
       }
     );
   };
-  window.checkoutButton =  renderComponent(bricksBuilder);
+  window.checkoutButton = renderComponent(bricksBuilder);
 }
 
 // Handle price update
@@ -83,5 +90,5 @@ document.getElementById("go-back").addEventListener("click", function () {
   setTimeout(() => {
     $(".shopping-cart").show(500).fadeIn();
   }, 500);
-  $('#checkout-btn').attr("disabled", false);
+  $("#checkout-btn").attr("disabled", false);
 });
