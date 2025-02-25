@@ -1,6 +1,6 @@
 # Checkout payment processing with Checkout Pro
 
-### This is a simple example of how you can accept payments by integrating our [Checkout PRO](https://www.mercadopago.com/developers/en/guides/online-payments/checkout-pro/introduction)
+## This is a simple example of how you can accept payments by integrating our [Checkout PRO](https://www.mercadopago.com/developers/en/guides/online-payments/checkout-pro/introduction)
 
 ### In this repository you will find two main folders:
 
@@ -24,4 +24,8 @@ If you are programming in a different language, we offer a client-side sample wh
 
 ## How it looks
 
-https://user-images.githubusercontent.com/30550706/195608149-bc37cd39-4afa-4c75-a3d5-3fd5f5a59bd7.mp4
+https://github.com/user-attachments/assets/f7defe58-d2c9-4761-9c1e-f923f7cb4311
+
+The payment button is currently in a migration process. The integration structure will soon change for all countries, but the current one will continue to work. For now, it is only available for Chile.
+
+https://github.com/user-attachments/assets/b1ac8921-d3a1-4b72-9f5e-03e8d8343882
