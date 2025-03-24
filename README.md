@@ -26,6 +26,6 @@ If you are programming in a different language, we offer a client-side sample wh
 
 https://github.com/user-attachments/assets/f7defe58-d2c9-4761-9c1e-f923f7cb4311
 
-The payment button is currently in a migration process. The integration structure will soon change for all countries, but the current one will continue to work. For now, it is only available for Chile.
+The payment button is currently in a migration process. The integration structure will soon change for all countries, but the current one will continue to work. For now, it is only available for Chile, Colombia, Mexico, Peru, and Uruguay.
 
 https://github.com/user-attachments/assets/b1ac8921-d3a1-4b72-9f5e-03e8d8343882
