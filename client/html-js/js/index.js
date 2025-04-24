@@ -52,12 +52,11 @@ function createCheckoutButton(preferenceId) {
           preferenceId: preferenceId,
         },
         customization: {
-          // Custom style example after migration process
-          // theme: "dark",
-          // customStyle: {
-          //   valueProp: "practicality",
-          //   valuePropColor: "black",
-          // },
+          theme: "dark",
+          customStyle: {
+            valueProp: "practicality",
+            valuePropColor: "black",
+          },
         },
         callbacks: {
           onError: (error) => console.error(error),

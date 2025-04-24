@@ -16,4 +16,4 @@
 
 ## Documentation
 
-Check out the [documentation](https://www.mercadopago.com.br/developers/en/docs/checkout-pro/integrate-checkout-pro/web) that explains the integration process and the possible settings for the payment button.
+Check out the [documentation](https://www.mercadopago.com/developers/en/docs/checkout-pro/integrate-checkout-pro/web) that explains the integration process and the possible settings for the payment button.
