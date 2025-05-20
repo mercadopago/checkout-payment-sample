@@ -21,11 +21,10 @@ const Payment = () => {
       <Wallet
         initialization={{ preferenceId: preferenceId }}
         onReady={handleOnReady}
-        // Custom style example after migration process
-        // customization={{
-        //   theme: "dark",
-        //   customStyle: { borderRadius: "20px" },
-        // }}
+        customization={{
+           theme: "dark",
+           customStyle: { borderRadius: "20px" },
+         }}
       />
     );
   };
